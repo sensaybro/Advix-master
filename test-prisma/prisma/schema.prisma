@@ -1,27 +1,48 @@
-model Post {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  title     String   @db.VarChar(255)
-  content   String?
-  published Boolean  @default(false)
-  author    User     @relation(fields: [authorId], references: [id])
-  authorId  Int
-}
+// model Post {
+//   id        Int      @id @default(autoincrement())
+//   createdAt DateTime @default(now())
+//   updatedAt DateTime @updatedAt
+//   title     String   @db.VarChar(255)
+//   content   String?
+//   published Boolean  @default(false)
+//   author    User     @relation(fields: [authorId], references: [id])
+//   authorId  Int
+// }
 
-model Profile {
-  id     Int     @id @default(autoincrement())
-  bio    String?
-  user   User    @relation(fields: [userId], references: [id])
-  userId Int     @unique
+// model Profile {
+//   id     Int     @id @default(autoincrement())
+//   bio    String?
+//   user   User    @relation(fields: [userId], references: [id])
+//   userId Int     @unique
+// }
+
+// model User {
+//   id          Int      @id @default(autoincrement())
+//   id_telegram Int      @unique
+//   name        String?
+//   posts       Post[]
+//   profile     Profile?
+// }
+model Channel {
+  id                Int     @id @default(autoincrement())
+  User_id           Int
+  user              User    @relation(fields: [User_id], references: [User_id])
+  Category          String
+  language          String
+  price             Int
+  id_telegram       Int     @unique
+  desc_channel      String
+  link_Cannel       String
+  link_Type_Boolean Boolean
+  url_Image_Channel String
 }
 
 model User {
-  id      Int      @id @default(autoincrement())
-  email   String   @unique
-  name    String?
-  posts   Post[]
-  profile Profile?
+  User_id     Int       @id @default(autoincrement())
+  id_telegram Int       @unique
+  user_name   String    @unique
+  link_image  String
+  channels    Channel[]
 }
 
 datasource db {

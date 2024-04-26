@@ -1,70 +1,59 @@
-const express = require('express')
+const { configDotenv } = require('dotenv')
 const { Telegraf } = require('telegraf')
-const crypto = require('crypto')
-const url = require('url')
-const querystring = require('querystring')
+//const dotenv = require('dotenv')
+configDotenv({ path: './.env' })
+// Создаем экземпляр PrismaClient
 
-const app = express()
-const PORT = process.env.PORT || 4000
+// Создаем экземпляр Telegraf
+const bot = new Telegraf(process.env.BOT_TOKEN)
 
-const botToken = '6612351882:AAFFt2BKU4ZsYZP__mcWsfQvLZ-GtW4IAuQ'
-const bot = new Telegraf(botToken)
-
-// Middleware для обработки вебхуков от Telegram
-app.use(bot.webhookCallback('/webhook'))
-
-// Обработчик для OAuth коллбека от Telegram
-const handleTelegramOAuthCallback = (req, res) => {
-	const parsedUrl = url.parse(req.url)
-	const queryParams = querystring.parse(parsedUrl.query)
-
-	if (!queryParams.hash || !queryParams.payload) {
-		res.status(400).send('Missing hash or payload')
-		return
-	}
-
-	let payload
+// Обработчик команды /start
+bot.command('start', async ctx => {
 	try {
-		payload = JSON.parse(Buffer.from(queryParams.payload, 'base64').toString())
+		// Берем ID пользователя
+		const userId = ctx.from.id
+
+		// Создаем токен сессии (в данном случае просто используем ID пользователя)
+		const sessionToken = generateSessionToken(userId)
+
+		// Проверяем наличие пользователя в базе данных
+		// const user = await prisma.user.findUnique({
+		// 	where: {
+		// 		id: userId,
+		// 	},
+		// })
+		console.log(userId)
+
+		// if (user) {
+		// 	// Если пользователь найден, отправляем сообщение об этом
+		// 	ctx.reply('Вы уже зарегистрированы.')
+		// } else {
+		// 	// Если пользователь не найден, отправляем сообщение о регистрации и сохраняем пользователя в базу данных
+		// 	await prisma.user.create({
+		// 		data: {
+		// 			id: userId,
+		// 			sessionToken: sessionToken,
+		// 		},
+		// 	})
+		// 	ctx.reply('Вы успешно зарегистрированы.')
+		// }
 	} catch (error) {
-		res.status(400).send('Invalid payload')
-		return
+		console.error('Ошибка обработки команды /start:', error)
+		ctx.reply('Произошла ошибка, попробуйте позже.')
 	}
-
-	const hash = queryParams.hash
-	const secretKey = crypto.createHash('sha256').update(botToken).digest()
-	const checkHash = crypto
-		.createHmac('sha256', secretKey)
-		.update(queryParams.payload)
-		.digest('hex')
-
-	if (hash !== checkHash) {
-		res.status(400).send('Invalid hash')
-		return
-	}
-
-	const user = payload.user
-	const userId = user.id
-	const firstName = user.first_name
-	const lastName = user.last_name
-	const username = user.username
-
-	// Здесь вы можете сохранить информацию о пользователе в вашей базе данных
-	// ...
-
-	res.send('User authenticated successfully!')
-}
-
-const webhookUrl = 'https://702e-31-40-130-47.ngrok-free.app/webhook'
-bot.telegram.setWebhook(webhookUrl)
-
-// Установка обработчика для OAuth коллбека
-app.get('/auth/callback', handleTelegramOAuthCallback)
-
-// Запуск Express сервера
-app.listen(PORT, () => {
-	console.log(`Server is running on port ${PORT}`)
 })
 
-// Запуск бота
-bot.launch()
+// Генерируем токен сессии (просто пример, вы можете использовать любую логику)
+function generateSessionToken(userId) {
+	return `session_token_${userId}`
+}
+
+// Запускаем бот
+bot
+	.launch()
+	.then(() => {
+		console.log('Бот запущен')
+	})
+	.catch(err => {
+		console.error('Ошибка запуска бота:', err)
+	})
