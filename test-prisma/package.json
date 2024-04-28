@@ -2,10 +2,10 @@
 	"name": "test-prisma",
 	"version": "1.0.0",
 	"description": "",
-	"main": "index.js",
+	"main": "bot.js",
 	"type": "module",
 	"scripts": {
-		"run bot": "nodemon bot.js",
+		"bot": "nodemon bot.js",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"keywords": [],
