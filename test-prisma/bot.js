@@ -94,7 +94,7 @@ bot.command('start', async ctx => {
 				},
 			})
 
-			ctx.reply('Вы успешно зарегистрированы.')
+			ctx.reply('Вы успешно авторизовались.')
 		}
 	} catch (error) {
 		console.error('Ошибка обработки команды /start:', error)
