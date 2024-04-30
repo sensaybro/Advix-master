@@ -57,13 +57,13 @@ bot.command('start', async ctx => {
 
 		if (user) {
 			// Если пользователь найден, отправляем сообщение об этом
-			ctx.reply('Вы уже зарегистрированы.')
+			await ctx.reply('Вы уже зарегистрированы.')
 		} else {
 			// Если пользователь не найден, отправляем сообщение о регистрации и сохраняем пользователя в базе данных
 			const userName = ctx.from.username // Сохраняем имя пользователя Telegram
 			let linkImage2 = ''
 			if (userName === undefined) {
-				ctx.reply('Пожалуйста, создайте уникальный @username')
+				await ctx.reply('Пожалуйста, создайте уникальный @username')
 				return
 			}
 
@@ -94,13 +94,13 @@ bot.command('start', async ctx => {
 				},
 			})
 
-			ctx.reply('Вы успешно авторизовались.')
+			await ctx.reply('Вы успешно авторизовались.')
 		}
 	} catch (error) {
 		console.error('Ошибка обработки команды /start:', error)
 
 		// Отправляем сообщение об ошибке пользователю
-		ctx.reply('Произошла ошибка, попробуйте позже.')
+		await ctx.reply('Произошла ошибка, попробуйте позже.')
 
 		// Логируем ошибку
 		console.error('Ошибка в обработчике команды /start:', error)
@@ -113,53 +113,69 @@ bot.command('start', async ctx => {
 
 // Генерируем токен сессии (просто пример, вы можете использовать любую логику)
 
-bot.on('my_chat_member', async (ctx, next) => {
-	if (
-		ctx.chat.type === 'channel' &&
-		ctx.update.my_chat_member.new_chat_member &&
-		ctx.update.my_chat_member.new_chat_member.status === 'administrator'
-	) {
-		try {
-			// Получаем информацию о чате (канале)
-			const chatInfo = await ctx.telegram.getChat(ctx.chat.id)
+async function handleAddCommand(ctx) {
+	try {
+		const chatInfo = await ctx.telegram.getChat(ctx.chat.id, {
+			cache_time: 0,
+		})
 
-			// Получаем ID пользователя
-			const userId = ctx.from.id
+		// Ваш остальной код обработки информации о чате
 
-			// Извлекаем нужные данные о канале
-			const { id, title, username, description, invite_link, photo } = chatInfo
+		// Дальнейшая обработка информации о канале
+		console.log('ID канала:', chatInfo.id)
+		console.log('Название канала:', chatInfo.title)
+		console.log('Имя пользователя канала:', chatInfo.username)
+		console.log('Описание канала:', chatInfo.description)
+		console.log('Пригласительная ссылка на канал:', chatInfo.invite_link)
+		console.log('URL аватарки канала:', avatarUrl)
+		console.log('Тип чата:', chatType)
 
-			// Обработка аватарки канала
-			let avatarUrl = ''
-			if (photo && photo.big_file_id) {
-				const avatarInfo = await ctx.telegram.getFile(photo.big_file_id)
-				avatarUrl = `https://api.telegram.org/file/bot${process.env.BOT_TOKEN}/${avatarInfo.file_path}`
-			}
+		// Выводим ID пользователя
+		console.log('ID пользователя:', ctx.from.id)
 
-			// Определение типа чата
-			console.log('ctx.chat.type', ctx.chat.type)
-			const chatType = username === undefined ? 'Приватный' : 'Публичный'
-
-			// Дальнейшая обработка информации о канале
-			console.log('ID канала:', id)
-			console.log('Название канала:', title)
-			console.log('Имя пользователя канала:', username)
-			console.log('Описание канала:', description)
-			console.log('Пригласительная ссылка на канал:', invite_link)
-			console.log('URL аватарки канала:', avatarUrl)
-			console.log('Тип чата:', chatType)
-
-			// Выводим ID пользователя
-			console.log('ID пользователя:', userId)
-
-			// Здесь вы можете выполнить любые дополнительные действия с полученными данными, например, сохранить их в базу данных
-		} catch (error) {
-			console.error('Ошибка при получении информации о канале:', error)
-		}
+		// Дополнительные действия, например, сохранение данных в базу данных
+	} catch (error) {
+		console.error(
+			'Ошибка при проверке статуса бота в чате или при получении информации о чате:',
+			error.message
+		)
+		// Обработка других ошибок
+		await ctx.reply('Произошла ошибка при выполнении команды.')
 	}
-	return next()
+}
+
+// Обработчик команды /add
+
+// Обработчик события my_chat_member
+// Обработчик события my_chat_member
+bot.on('channel_post', async (ctx, next) => {
+	try {
+		console.log(ctx.update.channel_post.text)
+		if (ctx.update.channel_post.text == '/add') {
+			await handleAddCommand(ctx)
+		}
+		// const newChatMember = ctx.update.my_chat_member.new_chat_member
+		// const oldChatMember = ctx.update.my_chat_member.old_chat_member
+
+		// if (
+		// 	newChatMember.status === 'kicked' &&
+		// 	oldChatMember.status === 'administrator'
+		// ) {
+		// 	console.error('Бот был удален из чата.')
+		// 	await ctx.reply('Бот был удален из чата.')
+		// 	return
+		// }
+
+		// if (newChatMember.status === 'administrator') {
+		// 	await handleAddCommand(ctx)
+		// }
+	} catch (error) {
+		console.log(error)
+		await ctx.reply('Произошла ошибка')
+	}
 })
 
+// Запускаем бот
 bot
 	.launch()
 	.then(() => {
