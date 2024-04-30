@@ -35,7 +35,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/home/amexdev/Загрузки/chat_parser/path/to/venv"
+VIRTUAL_ENV="/run/media/amexdev/tom/advix-master/Advix-master/chat_parser/path/to/venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
