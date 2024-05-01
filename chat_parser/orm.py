@@ -24,6 +24,7 @@ class Chanel(Base):
     price = Column(Integer)
     id_telegram = Column(Integer, unique=True)
     desc_channel = Column(String)
+    name_channel = Column(String)
     link_Cannel  = Column(String)
     link_Type_Boolean = Column(Boolean)
     url_Image_Channel = Column(String)
@@ -59,6 +60,7 @@ class Сhannel(Base):
     language = Column(String)
     price = Column(Integer)
 
+    name = Column(String)
     description = Column(String)
     invite_link = Column(String)
     private = Column(Boolean)

@@ -59,6 +59,7 @@ async def handler(message: Message):
         chanel_data = {
             "User_id": user.User_id,
             "id_telegram": chat.id,
+            "name_channel": chat.title,
             "desc_channel": desc_channel,
             "link_Cannel": invite_url,
             "link_Type_Boolean": link_Type_Boolean,
