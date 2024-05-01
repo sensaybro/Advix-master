@@ -23,6 +23,7 @@
 		"crypto": "^1.0.1",
 		"crypto-js": "^4.2.0",
 		"dotenv": "^16.4.5",
+		"express": "^4.19.2",
 		"express-validator": "^7.0.1",
 		"jsonwebtoken": "^9.0.2",
 		"multer": "^1.4.5-lts.1",
