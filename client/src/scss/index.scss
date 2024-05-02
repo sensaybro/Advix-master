@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @import './reset';
-@import './vars';
+@import './_vars.scss';
 
 *,
 *::after,
@@ -35,7 +35,8 @@ body,
 body {
 	background: var(--color-dark);
 	color: var(--color-white);
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
 }
 
 canvas {

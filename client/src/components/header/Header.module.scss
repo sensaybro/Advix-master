@@ -1,3 +1,94 @@
 .wrapperHeader {
 	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	text-align: center;
+	height: 82px;
+	align-content: center;
+	padding-left: 115px;
+	padding-right: 115px;
+	-webkit-box-shadow: 0px 10px 14px 6px #5f5f5f13;
+	box-shadow: 0px 10px 14px 6px #5f5f5f13;
+	div {
+		display: flex;
+		align-content: center;
+		align-items: center;
+		button {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+	}
+}
+.LoginBtn {
+	background-color: var(--color-light-blue);
+	color: var(--color-white);
+	width: 121px;
+	height: 42px;
+	border-radius: 20px;
+	span {
+		font-family: 'Roboto', sans-serif;
+		font-weight: 600;
+	}
+}
+.catalogHeader {
+	button {
+		background-color: #d9d9d9;
+		padding-top: 16px;
+		padding-bottom: 16px;
+		padding-left: 36px;
+		padding-right: 36px;
+		border: solid 1px;
+		border-color: var(--color-light-gray);
+		color: #a1aeb7;
+		&:first-of-type {
+			border-radius: 15px 0px 0px 15px;
+
+			border-right: solid 1px rgba(153, 168, 178, 0.18);
+		}
+
+		&:last-of-type {
+			border-radius: 0px 15px 15px 0px;
+
+			border-left: none;
+		}
+		span {
+			color: var(--color-light-gray);
+			font-family: 'Roboto', sans-serif;
+			font-size: 11px;
+			font-weight: 600;
+		}
+	}
+	.clickedHotBtn {
+		background-color: var(--color-dark-yellow);
+		border-color: var(--color-dark-yellow);
+		span {
+			color: #fff;
+		}
+	}
+	.nonClickedHotBtn {
+		background-color: #d9d9d9;
+		span {
+			color: #a1aeb7;
+		}
+	}
+	.clickedCatalogBtn {
+		background-color: var(--color-dark-blue);
+		border-color: var(--color-dark-blue);
+		span {
+			color: #fff;
+		}
+	}
+	.nonClickedCatalogBtn {
+		background-color: #d9d9d9;
+		span {
+			color: #a1aeb7;
+		}
+	}
+}
+
+.lastWrapperInHeader {
+	display: flex;
+	width: 12vw;
+	justify-content: space-between;
 }
