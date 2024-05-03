@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import './reset';
+@import './_reset.scss';
 @import './_vars.scss';
 
 *,
@@ -34,7 +34,7 @@ body,
 
 body {
 	background: var(--color-dark);
-	color: var(--color-white);
+	color: var(--color-light-gray);
 	font-family: 'Roboto', sans-serif;
 	font-weight: 400;
 }
@@ -103,7 +103,7 @@ ol > li {
 button,
 input,
 textarea {
-	color: var(--color-white);
+	color: var(--color-light-gray);
 }
 i {
 	font-style: italic;

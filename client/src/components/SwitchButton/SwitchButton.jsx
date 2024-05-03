@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Switch from 'react-switch'
+import moon from '../../assets/moon-svgrepo-com.svg'
 import sun from '../../assets/sun.svg'
 export const SwitchButton = () => {
 	const [checked, setChecked] = useState(true)
@@ -46,7 +47,14 @@ export const SwitchButton = () => {
 								fontSize: 20,
 							}}
 						>
-							☹
+							<img
+								width={20}
+								height={20}
+								style={{ borderRadius: 20 }}
+								src={moon}
+								alt=''
+								srcset=''
+							/>
 						</div>
 					}
 					checkedHandleIcon={
