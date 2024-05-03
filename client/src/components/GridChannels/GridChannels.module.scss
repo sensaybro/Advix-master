@@ -1,5 +1,10 @@
 .wrapperGrid {
 	display: flex;
 	justify-content: space-between;
+	flex-wrap: wrap;
 	width: 70vw;
+	.GridChannelsComponentsWrapper {
+		display: flex;
+		width: 500px;
+	}
 }
