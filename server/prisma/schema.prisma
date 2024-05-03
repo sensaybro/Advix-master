@@ -1,0 +1,38 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Connect {
+  id          Int    @id @default(autoincrement())
+  token       String @unique
+  telegram_id Int
+}
+
+model Channel {
+  id                Int     @id @default(autoincrement())
+  User_id           Int
+  Category          String
+  language          String
+  price             Int
+  id_telegram       BigInt  @unique
+  desc_channel      String
+  link_Cannel       String
+  link_Type_Boolean Boolean
+  url_Image_Channel String
+  public_type       Boolean
+  user              User    @relation(fields: [User_id], references: [User_id])
+}
+
+model User {
+  User_id     Int       @id @default(autoincrement())
+  id_telegram BigInt    @unique
+  link_image  String
+  user_name   String    @unique
+  channels    Channel[]
+}

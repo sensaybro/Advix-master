@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import './reset';
+@import './_vars.scss';
+
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+	font-size: calc(6px + (20 - 6) * ((100vw - 600px) / (1920 - 600)));
+	width: 100% !important;
+
+	@media (min-width: 1920px) {
+		font-size: 20px;
+	}
+
+	@media (max-width: 768px) {
+		font-size: 20px;
+	}
+}
+
+body {
+	background: var(--color-dark);
+	color: var(--color-white);
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+}
+
+canvas {
+	max-width: 100% !important;
+	display: none !important;
+}
+
+html {
+	scroll-behavior: smooth;
+	scroll-padding-block-start: 75px;
+}
+
+.container {
+	max-width: 72.5rem;
+	padding: 0 0.5rem;
+	margin: 0 auto;
+}
+
+::-webkit-scrollbar {
+	background: var(--color-dark);
+	width: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--color-black);
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a {
+	color: inherit;
+}
+h1 {
+	font-size: 2em;
+}
+h2 {
+	font-size: 1.5em;
+}
+h3 {
+	font-size: 1.17em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: 700;
+}
+ul > li {
+	display: list-item;
+	list-style: none;
+}
+ol > li {
+	display: list-item;
+	list-style: none;
+}
+button,
+input,
+textarea {
+	color: var(--color-white);
+}
+i {
+	font-style: italic;
+}
+
+#special {
+	margin-top: 100px;
+}
+
+img {
+	display: block;
+}

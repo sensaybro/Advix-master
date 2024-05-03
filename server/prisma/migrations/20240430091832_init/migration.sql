@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "Connect" ALTER COLUMN "token" SET DATA TYPE TEXT;
