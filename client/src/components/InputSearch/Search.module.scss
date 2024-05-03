@@ -12,7 +12,7 @@
 	padding: 0.1%;
 	border: 1px solid var(--color-light-gray);
 
-	box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.149);
+	box-shadow: var(--shadow-style);
 }
 
 input {
