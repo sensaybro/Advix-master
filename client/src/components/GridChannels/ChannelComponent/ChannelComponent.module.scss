@@ -1,3 +1,127 @@
 .wrapperChannelComponent {
 	display: flex;
+
+	height: 450px;
+	width: 310px;
+
+	border-radius: var(--md-raduis);
+	position: relative;
+	box-shadow: var(--shadow-style);
+	.wrapperDescChannel {
+		position: absolute;
+
+		top: 150px;
+	}
+}
+.wrapperComponent {
+	display: flex;
+	justify-content: center;
+}
+.wrapperImg {
+	display: flex;
+	justify-content: center;
+	.wrapperFavorite {
+		position: absolute;
+		left: 92%;
+		top: 1%;
+		background-color: var(--color-white);
+		border-radius: 5px;
+	}
+	.wrapperImgAndDesc {
+		top: 12%;
+		display: flex;
+		position: absolute;
+		align-items: center;
+	}
+}
+:root {
+	h2 {
+		color: var(--color-black);
+		font-family: 'Roboto', sans-serif;
+	}
+	.bordedElement {
+		border: 0.1rem solid var(--color-light-gray);
+		border-radius: 10px;
+		padding: 0px 5px 0px 7px;
+		font-size: 10px;
+		font-weight: 600;
+		&:first-of-type {
+			margin-right: 5px;
+		}
+	}
+	.wrapperQuotes {
+		background-color: #f1f8fd;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		border-bottom-right-radius: var(--md-raduis);
+		border-top-right-radius: var(--md-raduis);
+		border-left: 2px solid var(--color-light-blue);
+		height: 55px;
+		width: 255px;
+		overflow: scroll;
+	}
+	.quotesStyle {
+		quotes: initial;
+		font-size: 14px;
+		font-weight: 500;
+		font-family: 'Roboto', sans-serif;
+	}
+}
+.wrapperStatistics {
+	margin-top: 20px;
+	display: flex;
+	width: 256px;
+	justify-content: space-between;
+	flex-wrap: nowrap;
+	div {
+		display: flex;
+		flex-direction: column;
+
+		div {
+			display: flex;
+			justify-content: flex-start;
+			flex-direction: row;
+
+			span {
+				font-size: 12px;
+				strong {
+					font-weight: 600;
+				}
+			}
+		}
+	}
+}
+.pairStatistics {
+}
+
+.forFutureFeatures {
+	position: absolute;
+	top: 270px;
+	left: 30px;
+	display: flex;
+	div {
+		margin-right: 10px;
+		width: 50px;
+		height: 19px;
+		border-radius: var(--md-raduis);
+		background-color: #f1f8fd;
+	}
+}
+hr {
+	position: absolute;
+	top: 300px;
+	width: 256px;
+}
+.wrapperDefaultPrice {
+	position: absolute;
+	top: 320px;
+	span {
+		font-size: 30px;
+		font-weight: 600;
+		font-family: 'Roboto', sans-serif;
+		color: var(--color-price-default);
+	}
 }

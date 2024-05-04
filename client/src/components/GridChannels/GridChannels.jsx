@@ -16,10 +16,14 @@ const GridChannels = () => {
 	const default_arg = 'Без сортировки'
 	return (
 		<div className={style.wrapperGrid}>
-			<Search />
-			<DropDown default_arg={default_arg} args={args} />
+			<div className={style.wrapperHeaderGrid}>
+				<Search />
+				<DropDown default_arg={default_arg} args={args} />
+			</div>
 			<div className={style.GridChannelsComponentsWrapper}>
-				<ChannelComponent data={data} />
+				{data.map(element => {
+					return <ChannelComponent element={element} />
+				})}
 			</div>
 		</div>
 	)

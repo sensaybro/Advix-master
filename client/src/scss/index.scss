@@ -20,7 +20,7 @@ html {
 html,
 body,
 #root {
-	font-size: calc(6px + (20 - 6) * ((100vw - 600px) / (1920 - 600)));
+	/* font-size: calc(6px + (20 - 6) * ((100vw - 600px) / (1920 - 600)));
 	width: 100% !important;
 
 	@media (min-width: 1920px) {
@@ -29,7 +29,7 @@ body,
 
 	@media (max-width: 768px) {
 		font-size: 20px;
-	}
+	} */
 }
 
 body {
