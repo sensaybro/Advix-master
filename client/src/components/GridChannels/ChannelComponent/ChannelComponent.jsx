@@ -8,6 +8,32 @@ import priceCMP from '../../../assets/priceCPM.svg'
 import style from './ChannelComponent.module.scss'
 const ChannelComponent = ({ element }) => {
 	const [clicked, setClicked] = useState(false)
+	const [clickedTypePrice, setClickedTypePrice] = useState({
+		24: false,
+		48: false,
+		72: false,
+		0: false,
+		1: false,
+		2: false,
+	})
+
+	const handleClickedTypePrice = key => {
+		setClickedTypePrice(prevState => {
+			// Сначала создаем новый объект состояния, где все ключи устанавливаются в false
+			let newState = {
+				24: false,
+				48: false,
+				72: false,
+				0: false,
+				1: false,
+				2: false,
+			}
+			// Устанавливаем значение true только для кнопки, на которую был сделан клик
+			newState[key] = true
+			return newState
+		})
+	}
+
 	const handleClickedFavorite = () => {
 		setClicked(!clicked)
 	}
@@ -100,6 +126,30 @@ const ChannelComponent = ({ element }) => {
 					</span>
 				</div>
 			</div>
+			<div className={style.priceType}>
+				{element.default_time_day.map((time, index) => (
+					<button
+						key={index}
+						className={
+							clickedTypePrice[time] ? style.clickedBtn : style.nonClickedButton
+						}
+						onClick={() => handleClickedTypePrice(time)}
+					>
+						{time === 24 && '1/24'}
+						{time === 48 && '1/48'}
+						{time === 72 && '1/72'}
+						{time === 0 && 'натив'}
+						{time === 1 && 'репост'}
+						{time === 2 && 'б/уд'}
+					</button>
+				))}
+			</div>
+			<button className={style.BtnBuy}>
+				<span>КУПИТЬ</span>
+			</button>
+			<button className={style.BtnFollowing}>
+				<span>ОТПИСАТЬСЯ ОТ ГОРЯЩИХ ❌</span>
+			</button>
 		</div>
 	)
 }
