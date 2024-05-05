@@ -7,8 +7,7 @@
 	align-content: center;
 	padding-left: 115px;
 	padding-right: 115px;
-	-webkit-box-shadow: 0px 10px 14px 6px #5f5f5f13;
-	box-shadow: 0px 10px 14px 6px #5f5f5f13;
+	box-shadow: var(--shadow-style);
 	div {
 		display: flex;
 		align-content: center;

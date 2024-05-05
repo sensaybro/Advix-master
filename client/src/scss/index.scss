@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import './reset';
+@import './_reset.scss';
 @import './_vars.scss';
 
 *,
@@ -20,7 +20,7 @@ html {
 html,
 body,
 #root {
-	font-size: calc(6px + (20 - 6) * ((100vw - 600px) / (1920 - 600)));
+	/* font-size: calc(6px + (20 - 6) * ((100vw - 600px) / (1920 - 600)));
 	width: 100% !important;
 
 	@media (min-width: 1920px) {
@@ -29,12 +29,12 @@ body,
 
 	@media (max-width: 768px) {
 		font-size: 20px;
-	}
+	} */
 }
 
 body {
-	background: var(--color-dark);
-	color: var(--color-white);
+	background-color: var(--color-background-root);
+	color: var(--color-light-gray);
 	font-family: 'Roboto', sans-serif;
 	font-weight: 400;
 }
@@ -103,7 +103,7 @@ ol > li {
 button,
 input,
 textarea {
-	color: var(--color-white);
+	color: var(--color-light-gray);
 }
 i {
 	font-style: italic;
