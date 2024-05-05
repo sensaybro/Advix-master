@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import eye from '../../../assets/eye.svg'
 import favorite from '../../../assets/favorite.svg'
 import favorited from '../../../assets/favorited.svg'
@@ -16,6 +16,13 @@ const ChannelComponentHot = ({ element }) => {
 		1: false,
 		2: false,
 	})
+	const formulaDiscount = () => {
+		const a = element.priceObjects[0].price
+		const b = element.priceObjects[1].price
+		const d = a - b
+		const x = (d * 100) / a
+		return x
+	}
 
 	const handleClickedTypePrice = key => {
 		setClickedTypePrice(prevState => {
@@ -32,6 +39,27 @@ const ChannelComponentHot = ({ element }) => {
 			newState[key] = true
 			return newState
 		})
+	}
+
+	const TimeDifference = ({ hotDate }) => {
+		const [currentTime, setCurrentTime] = useState(new Date())
+
+		useEffect(() => {
+			const interval = setInterval(() => {
+				setCurrentTime(new Date())
+			}, 1000)
+
+			return () => clearInterval(interval)
+		}, [])
+
+		const timeDifference = Math.floor(
+			(hotDate.getTime() - currentTime.getTime()) / 1000
+		)
+		const hours = Math.floor(timeDifference / 3600)
+		const minutes = Math.floor((timeDifference % 3600) / 60)
+		const seconds = Math.floor(timeDifference % 60)
+
+		return <div>{`${hours}:${minutes}:${seconds}`}</div>
 	}
 
 	const handleClickedFavorite = () => {
@@ -121,37 +149,98 @@ const ChannelComponentHot = ({ element }) => {
 					<div></div>
 				</div>
 				<hr color='#e1e5e8' />
-				<div className={style.wrapperDefaultPrice}>
+				<div className={style.wrapperDefaultPriceUnderline}>
 					<span>
-						{element.default_price.toLocaleString('ru-RU', {
+						{element.priceObjects[0].price.toLocaleString('ru-RU', {
 							style: 'currency',
 							currency: 'RUB',
 							minimumFractionDigits: 0,
 						})}
 					</span>
 				</div>
+				<div className={style.wrapperDefaultPrice}>
+					<span>
+						{element.priceObjects
+							.filter(element => element.hot === true)
+							.map(element => element.price)
+							.toLocaleString('ru-RU', {
+								style: 'currency',
+								currency: 'RUB',
+								minimumFractionDigits: 0,
+							})}
+					</span>
+				</div>
 			</div>
-			<div className={style.priceType}>
-				{element.default_time_day.map((time, index) => (
-					<button
-						key={index}
-						className={
-							clickedTypePrice[time] ? style.clickedBtn : style.nonClickedButton
-						}
-						onClick={() => handleClickedTypePrice(time)}
-					>
-						{time === 24 && '1/24'}
-						{time === 48 && '1/48'}
-						{time === 72 && '1/72'}
-						{time === 0 && 'натив'}
-						{time === 1 && 'репост'}
-						{time === 2 && 'б/уд'}
-					</button>
-				))}
+			<div className={style.wrapperTypePrice}>
+				<div className={style.priceType}>
+					{element.priceObjects.map(
+						(time, index) =>
+							time.hot === true && (
+								<button
+									key={index}
+									className={style.clickedBtn}
+									//	onClick={() => handleClickedTypePrice(time)}
+								>
+									<span>
+										{time.time === 24 && '1/24'}
+										{time.time === 48 && '1/48'}
+										{time.time === 72 && '1/72'}
+										{time.time === 0 && 'натив'}
+										{time.time === 1 && 'репост'}
+										{time.time === 2 && 'б/уд'}
+									</span>
+								</button>
+							)
+					)}
+				</div>
+				<div className={style.priceType}>
+					{element.priceObjects.map(
+						(time, index) =>
+							time.hot === true && (
+								<button
+									key={index}
+									className={style.clickedBtn}
+									onClick={() => handleClickedTypePrice(time)}
+								>
+									<span>
+										{time.hot_date.toLocaleDateString('ru-RU', {
+											month: 'long',
+											day: 'numeric',
+										})}
+									</span>
+								</button>
+							)
+					)}
+				</div>
+				<div className={style.priceType}>
+					{element.priceObjects.map(
+						(time, index) =>
+							time.hot === true && (
+								<button
+									key={index}
+									className={style.clickedBtn}
+									onClick={() => handleClickedTypePrice(time)}
+								>
+									<span>
+										{time.hot_date.toLocaleTimeString('ru-RU', {
+											hour: 'numeric',
+											minute: 'numeric',
+										})}
+									</span>
+								</button>
+							)
+					)}
+				</div>
 			</div>
 			<button className={style.BtnBuy}>
 				<span>КУПИТЬ СО СКИДКОЙ</span>
 			</button>
+			<div className={style.TimeAndDiscount}>
+				<div className={style.wrapperFormulaDis}>{formulaDiscount()}%</div>
+				<div className={style.TimeBuy}>
+					<TimeDifference hotDate={element.priceObjects[1].hot_date} />
+				</div>
+			</div>
 		</div>
 	)
 }
