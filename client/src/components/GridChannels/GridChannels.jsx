@@ -2,6 +2,7 @@ import DropDown from '../DropDown/DropDown'
 import Search from '../InputSearch/Search'
 import ChannelComponent from './ChannelComponent/ChannelComponent'
 import { data } from './ChannelComponent/FakeData.js'
+import ChannelComponentHot from './ChannelComponentHot/ChannelComponentHot'
 import style from './GridChannels.module.scss'
 const GridChannels = () => {
 	const args = [
@@ -22,7 +23,11 @@ const GridChannels = () => {
 			</div>
 			<div className={style.GridChannelsComponentsWrapper}>
 				{data.map(element => {
-					return <ChannelComponent element={element} />
+					return element.hot_state === false ? (
+						<ChannelComponent element={element} />
+					) : (
+						<ChannelComponentHot element={element} />
+					)
 				})}
 			</div>
 		</div>
