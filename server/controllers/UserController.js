@@ -3,11 +3,11 @@ import { PrismaClient } from '@prisma/client' //
 export const getMe = async (req, res) => {
 	try {
 		const prisma = new PrismaClient()
-		const { id_telegram, token } = req.query
+		const { id_telegram, secret } = req.query
 
 		const result_token = await prisma.connect.findUnique({
 			where: {
-				token,
+				token: secret,
 			},
 		})
 
