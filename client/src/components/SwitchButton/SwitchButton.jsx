@@ -1,11 +1,15 @@
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import Switch from 'react-switch'
 import moon from '../../assets/moon-svgrepo-com.svg'
 import sun from '../../assets/sun.svg'
+import { themeReducer } from '../../redux/reducers/ThemeSlice'
 export const SwitchButton = () => {
 	const [checked, setChecked] = useState(true)
+	const dispatch = useDispatch()
 	const handleChange = nextChecked => {
 		setChecked(nextChecked)
+		dispatch(themeReducer(nextChecked))
 	}
 	console.log('checked', checked)
 

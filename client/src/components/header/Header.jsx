@@ -1,19 +1,27 @@
 import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import logo from '../../assets/advix_blue.svg'
 import telegram from '../../assets/telegram-svgrepo-com.svg'
+import { setCatalog } from '../../redux/reducers/SelectedCatalogSlice'
 import { SwitchButton } from '../SwitchButton/SwitchButton'
 import style from './Header.module.scss'
 const Header = () => {
 	const [clickedHotBtn, setClickedHotBtn] = useState(false)
 	const [clickedCatalogBtn, setClickedCatalogBtn] = useState(false)
+	const dispatch = useDispatch()
 	const handleClickHotBtn = () => {
 		setClickedHotBtn(!clickedHotBtn)
 		setClickedCatalogBtn(false)
+		dispatch(setCatalog({ label: 'Горящие', state: true }))
 	}
 	const handleClickCatalogBtn = () => {
 		setClickedCatalogBtn(!clickedCatalogBtn)
 		setClickedHotBtn(false)
+		dispatch(setCatalog({ label: 'Каталог', state: true }))
 	}
+	const { pages } = useSelector(state => state.selectedCatalog)
+	const { theme } = useSelector(state => state.theme)
+	console.log(theme)
 	return (
 		<header className={style.wrapperHeader}>
 			<div>
@@ -23,7 +31,7 @@ const Header = () => {
 				<button
 					onClick={handleClickCatalogBtn}
 					className={
-						clickedCatalogBtn
+						pages.label !== 'Горящие'
 							? `${style.clickedCatalogBtn}`
 							: `${style.nonClickedCatalogBtn}`
 					}
@@ -33,7 +41,7 @@ const Header = () => {
 				<button
 					onClick={handleClickHotBtn}
 					className={
-						clickedHotBtn
+						pages.label === 'Горящие'
 							? `${style.clickedHotBtn}`
 							: `${style.nonClickedHotBtn}`
 					}
@@ -44,8 +52,10 @@ const Header = () => {
 			<div className={style.lastWrapperInHeader}>
 				<SwitchButton />
 				<button className={style.LoginBtn}>
-					<img width={19} height={16} src={telegram} alt='telegram' />
-					<span>Войти</span>
+					<a target='_blank' href='https://t.me/AdvixOAuth_bot'>
+						<img width={19} height={16} src={telegram} alt='telegram' />
+						<span>Войти</span>
+					</a>
 				</button>
 			</div>
 		</header>

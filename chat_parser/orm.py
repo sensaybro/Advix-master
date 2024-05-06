@@ -1,6 +1,7 @@
-from sqlalchemy import create_engine, Column, Boolean, String, Integer
-from sqlalchemy.orm import DeclarativeBase, Session
+from sqlalchemy import create_engine, Column, Boolean, String, Integer, DateTime, BigInteger, ForeignKey
+from sqlalchemy.orm import DeclarativeBase, Session, relationship
 
+from datetime import datetime
 
 from config import DB_PASSWORD, DB_USER, DB_DATABASE, DB_HOST, DB_PORT
 
@@ -15,20 +16,31 @@ class Base(DeclarativeBase):
     pass
 
 class Chanel(Base):
-    __tablename__ = "Channel"
+    __tablename__ = 'Channel'
 
     id = Column(Integer, primary_key=True, autoincrement=True)
-    User_id = Column(Integer)
-    Category = Column(String)
-    language = Column(String)
-    price = Column(Integer)
-    id_telegram = Column(Integer, unique=True)
-    desc_channel = Column(String)
-    name_channel = Column(String)
-    link_Cannel  = Column(String)
-    link_Type_Boolean = Column(Boolean)
-    url_Image_Channel = Column(String)
-    public_type = Column(Boolean)
+    User_id = Column(Integer, default=0)
+    Category = Column(String, default='')
+    language = Column(String, default='')
+    name_channel = Column(String, default='')
+    id_telegram = Column(BigInteger, unique=True, default=0)
+    desc_channel = Column(String, default='')
+    link_Cannel = Column(String, default='')
+    link_Type_Boolean = Column(Boolean, default=False)
+    url_Image_Channel = Column(String, default='')
+    public_type = Column(Boolean, default=False)
+    count_subscribers = Column(Integer, default=0)
+    count_views = Column(Integer, default=0)
+    ERR = Column(Integer, default=0)
+    position = Column(Integer, default=0)
+    default_price = Column(Integer, default=0)
+    default_time_day = Column(Integer, default=0)
+    hot_price = Column(Integer, default=0)
+    CPM = Column(Integer, default=0)
+    hot_state = Column(Boolean, default=False)
+    hot_date = Column(DateTime, default=datetime.utcfromtimestamp(0))
+    currently_date = Column(DateTime, default=datetime.utcfromtimestamp(0))
+
 
 class User(Base):
     __tablename__ = "User"

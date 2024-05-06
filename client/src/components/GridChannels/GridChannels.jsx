@@ -1,3 +1,4 @@
+import { useSelector } from 'react-redux'
 import DropDown from '../DropDown/DropDown'
 import Search from '../InputSearch/Search'
 import ChannelComponent from './ChannelComponent/ChannelComponent'
@@ -15,6 +16,8 @@ const GridChannels = () => {
 		'Отзывы',
 	]
 	const default_arg = 'Без сортировки'
+	const { pages } = useSelector(state => state.selectedCatalog)
+
 	return (
 		<div className={style.wrapperGrid}>
 			<div className={style.wrapperHeaderGrid}>
@@ -23,11 +26,13 @@ const GridChannels = () => {
 			</div>
 			<div className={style.GridChannelsComponentsWrapper}>
 				{data.map(element => {
-					return element.hot_state === false ? (
-						<ChannelComponent element={element} />
-					) : (
-						<ChannelComponentHot element={element} />
-					)
+					return pages.label === 'Каталог'
+						? element.hot_state === false && (
+								<ChannelComponent element={element} />
+						  )
+						: element.hot_state === true && (
+								<ChannelComponentHot element={element} />
+						  )
 				})}
 			</div>
 		</div>

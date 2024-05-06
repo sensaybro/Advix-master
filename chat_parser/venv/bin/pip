@@ -1,4 +1,4 @@
-#!/run/media/amexdev/tom/Advix-master/chat_parser/venv/bin/python
+#!/run/media/amexdev/tom/advix2/Advix-master/chat_parser/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys

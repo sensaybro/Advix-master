@@ -56,6 +56,8 @@ async def handler(message: Message):
             session.commit()
             chanel = None
 
+        members = await message.bot.get_chat_member_count(chat.id)
+
         chanel_data = {
             "User_id": user.User_id,
             "id_telegram": chat.id,
@@ -65,16 +67,14 @@ async def handler(message: Message):
             "link_Type_Boolean": link_Type_Boolean,
             "url_Image_Channel": url_Image_Channel if url_Image_Channel else "",
             "public_type": public_type,
-
-            "Category": "",
-            "language": "",
-            "price": 0
+            "count_subscribers": members
         }
         data = Chanel(
             **chanel_data
         )
         session.add(data)
         session.commit()
+        # print(chanel_data)
 
 @dp.message()
 async def handler(message: Message):
@@ -100,11 +100,13 @@ async def handler(message: Message):
             'link_image': file_path,
             'user_name': message.from_user.username
         }
+        # print(user)
         user = User(
             **user
         )
         session.add(user)
         session.commit()
+
 
     if message.text.lower() == '/start':
         markup = ReplyKeyboardMarkup(resize_keyboard=True, keyboard=([[KeyboardButton(text="Перейти на сайт")]]))

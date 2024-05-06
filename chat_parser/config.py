@@ -7,4 +7,4 @@ DB_PORT = 6543
 DB_DATABASE = "postgres"
 
 ADMIN = 1435437398 # ид пользователя к которму будут отправляться сообщения о вступлении бота в каналы
-DOMAIN = 'http://localhost:3000'
+DOMAIN = 'https://localhost:3000/channels'

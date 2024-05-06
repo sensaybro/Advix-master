@@ -1,3 +1,25 @@
+.nightlyWrapperHeader {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	text-align: center;
+	height: 82px;
+	align-content: center;
+	padding-left: 115px;
+	padding-right: 115px;
+	box-shadow: var(--shadow-style);
+	background-color: var(--color-background-black);
+	div {
+		display: flex;
+		align-content: center;
+		align-items: center;
+		button {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+	}
+}
 .wrapperHeader {
 	display: flex;
 	justify-content: space-between;
@@ -8,6 +30,7 @@
 	padding-left: 115px;
 	padding-right: 115px;
 	box-shadow: var(--shadow-style);
+
 	div {
 		display: flex;
 		align-content: center;
@@ -20,14 +43,21 @@
 	}
 }
 .LoginBtn {
-	background-color: var(--color-light-blue);
+	display: flex;
+	background-color: var(--color-dark-blue);
 	color: var(--color-white);
 	width: 121px;
 	height: 42px;
 	border-radius: 20px;
-	span {
-		font-family: 'Roboto', sans-serif;
-		font-weight: 600;
+
+	a {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		span {
+			font-family: 'Roboto', sans-serif;
+			font-weight: 600;
+		}
 	}
 }
 .catalogHeader {
