@@ -26,13 +26,20 @@ const GridChannels = () => {
 			</div>
 			<div className={style.GridChannelsComponentsWrapper}>
 				{data.map(element => {
-					return pages.label === 'Каталог'
-						? element.hot_state === false && (
+					return pages.label === 'Каталог' ? (
+						<>
+							{element.hot_state === false && (
 								<ChannelComponent element={element} />
-						  )
-						: element.hot_state === true && (
+							)}
+							{element.hot_state === true && (
 								<ChannelComponentHot element={element} />
-						  )
+							)}
+						</>
+					) : (
+						element.hot_state === true && (
+							<ChannelComponentHot element={element} />
+						)
+					)
 				})}
 			</div>
 		</div>

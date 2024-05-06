@@ -16,9 +16,20 @@ const ChannelComponentHot = ({ element }) => {
 		1: false,
 		2: false,
 	})
+	const getForHot = () => {
+		return element.priceObjects.filter(element => {
+			return element.for_hot === true
+		})
+	}
+	const getHot = () => {
+		return element.priceObjects.filter(element => {
+			return element.hot === true
+		})
+	}
 	const formulaDiscount = () => {
-		const a = element.priceObjects[0].price
-		const b = element.priceObjects[1].price
+		console.log(getHot()[0])
+		const a = getForHot()[0].price
+		const b = getHot()[0].price
 		const d = a - b
 		const x = (d * 100) / a
 		return x

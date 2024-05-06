@@ -35,6 +35,10 @@
 		display: flex;
 		position: absolute;
 		align-items: center;
+		img {
+			display: inline-block;
+			border-radius: 50%;
+		}
 	}
 }
 :root {
@@ -199,4 +203,9 @@ hr {
 	width: 310px;
 	transform: translate(-50%, -50%);
 	background: none;
+}
+.borderRadius {
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+	object-fit: cover;
 }

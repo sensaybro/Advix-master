@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import eye from '../../../assets/eye.svg'
 import favorite from '../../../assets/favorite.svg'
 import favorited from '../../../assets/favorited.svg'
@@ -55,13 +56,33 @@ const ChannelComponent = ({ element }) => {
 						/>
 					</button>
 					<div>
-						<img src={element.url_background_channel} alt='' srcset='' />
+						<img
+							className={style.borderRadius}
+							width={310}
+							height={79}
+							src={element.url_background_channel}
+							alt=''
+							srcset=''
+						/>
 					</div>
 
 					<div className={style.wrapperImgAndDesc}>
-						<img src={element.url_Image_Channel} alt='' srcset='' />
+						<Link to={`/channels/${element.id}`}>
+							<img
+								width={85}
+								height={85}
+								src={element.url_Image_Channel}
+								alt=''
+								srcset=''
+							/>
+						</Link>
+
 						<div>
-							<h2>{element.name_channel}</h2>
+							<h2>
+								<Link to={`/channels/${element.id}`}>
+									{element.name_channel}
+								</Link>
+							</h2>
 							<div>
 								<span className={style.bordedElement}>{element.Category}</span>
 								<span className={style.bordedElement}>#{element.position}</span>

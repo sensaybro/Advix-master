@@ -1,6 +1,8 @@
 import img from '../../../assets/advix_photo.png'
+import newImg from '../../../assets/avatar_example.png'
 import background from '../../../assets/background_advix.png'
-const date = new Date('2024-5-7')
+import newBackground from '../../../assets/background_example.png'
+const date = new Date('2024-5-8')
 date.setUTCHours(9, 0, 0, 0)
 const dateCurrently = new Date()
 
@@ -15,8 +17,8 @@ export const data = [
 		link_Cannel: 'https://t.me/gdf5455gh',
 		link_Type_Boolean: true,
 		name_channel: 'Test: новости',
-		url_Image_Channel: img,
-		url_background_channel: background,
+		url_Image_Channel: newImg,
+		url_background_channel: newBackground,
 		public_type: true,
 		count_subscribers: 5257,
 		count_views: 99912,
@@ -54,7 +56,7 @@ export const data = [
 		desc_channel: 'Отличный канал! Условия в ЛС!',
 		link_Cannel: 'https://t.me/gdf5455gh',
 		link_Type_Boolean: true,
-		name_channel: 'Test: новости',
+		name_channel: 'Amex: новости',
 		url_Image_Channel: img,
 		url_background_channel: background,
 		public_type: true,
