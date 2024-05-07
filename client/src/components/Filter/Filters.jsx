@@ -85,7 +85,10 @@ function Filter() {
 	const [check, setCheck] = useState(false)
 
 	// Обработчики изменения состояний радио-кнопок
-	const handleLikeChange = () => setLike(!like)
+	const handleLikeChange = () => {
+		console.log('like', like)
+		setLike(!like)
+	}
 	const handleOnlineChange = () => setOnline(!online)
 	const handleOpenChange = () => setOpen(!open)
 	const handleVerifyChange = () => setVerify(!verify)

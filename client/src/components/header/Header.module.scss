@@ -22,6 +22,7 @@
 }
 .wrapperHeader {
 	display: flex;
+	position: relative;
 	justify-content: space-between;
 	align-items: center;
 	text-align: center;
@@ -61,12 +62,19 @@
 	}
 }
 .catalogHeader {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	top: 50%;
+	left: 50%;
+
 	button {
+		width: 121px;
+		height: 42px;
 		background-color: #d9d9d9;
-		padding-top: 16px;
-		padding-bottom: 16px;
+		//padding-top: 16px;
+		/* padding-bottom: 16px;
 		padding-left: 36px;
-		padding-right: 36px;
+		padding-right: 36px; */
 		border: solid 1px;
 		border-color: var(--color-light-gray);
 		color: #a1aeb7;
@@ -89,6 +97,8 @@
 		}
 	}
 	.clickedHotBtn {
+		width: 121px;
+		height: 42px;
 		background-color: var(--color-dark-yellow);
 		border-color: var(--color-dark-yellow);
 		span {
@@ -96,12 +106,16 @@
 		}
 	}
 	.nonClickedHotBtn {
+		width: 121px;
+		height: 42px;
 		background-color: #d9d9d9;
 		span {
 			color: #a1aeb7;
 		}
 	}
 	.clickedCatalogBtn {
+		width: 121px;
+		height: 42px;
 		background-color: var(--color-dark-blue);
 		border-color: var(--color-dark-blue);
 		span {
@@ -109,6 +123,8 @@
 		}
 	}
 	.nonClickedCatalogBtn {
+		width: 121px;
+		height: 42px;
 		background-color: #d9d9d9;
 		span {
 			color: #a1aeb7;
