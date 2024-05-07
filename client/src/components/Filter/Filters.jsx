@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-import icoVerify from '../../assets/icons/check.svg'
+import icoVerify from '../../assets/icons/check_verify.svg'
 import icoHeartStroke from '../../assets/icons/favorite.svg'
 import icoHeart from '../../assets/icons/favorite_heart.svg'
 import icoFilter from '../../assets/icons/filter.svg'

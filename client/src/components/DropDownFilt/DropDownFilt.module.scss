@@ -13,19 +13,19 @@
 	button {
 		width: 204px;
 		height: 28px;
-		
+
 		background: none;
-		
+
 		border-radius: 7px;
 		border: 1px solid var(--color-light-gray);
-		
+
 		font-size: 12px;
 		font-family: inherit;
 		color: inherit;
-	
+
 		padding: 5px 15px 5px 50px;
 	}
-	
+
 	ul {
 		list-style-type: none;
 		padding: 0;
@@ -37,7 +37,7 @@
 		box-shadow: var(--shadow);
 		position: absolute;
 		z-index: 100;
-		top: 20px;
+		top: 35px;
 
 		li {
 			width: 204px;
@@ -82,18 +82,20 @@
 }
 
 .reload_btn {
-    background: none;
+	background: none;
 
-    display: flex;
-    align-items: center;
+	display: flex;
+	align-items: center;
+
+	margin-left: 5px;
 }
 
 .reload_btn:active img {
-    animation: rotate 0.25s linear;
+	animation: rotate 0.25s linear;
 }
 
 @keyframes rotate {
-    to {
-        transform: rotate(-360deg);
-    }
+	to {
+		transform: rotate(-360deg);
+	}
 }
