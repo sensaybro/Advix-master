@@ -86,9 +86,11 @@ function Filter() {
 
 	// Обработчики изменения состояний радио-кнопок
 	const handleLikeChange = () => {
-		console.log('like', like)
 		setLike(!like)
 	}
+	// useEffect(()=>{
+	// 	setLike(!like)
+	// },[like])
 	const handleOnlineChange = () => setOnline(!online)
 	const handleOpenChange = () => setOpen(!open)
 	const handleVerifyChange = () => setVerify(!verify)
@@ -306,7 +308,7 @@ function Filter() {
 							type='radio'
 							id='like'
 							checked={like}
-							onChange={handleLikeChange}
+							onClick={handleLikeChange}
 						/>
 						<label for='like' className={style.label_radio}>
 							В избранном
@@ -319,7 +321,7 @@ function Filter() {
 							type='radio'
 							id='online'
 							checked={online}
-							onChange={handleOnlineChange}
+							onClick={handleOnlineChange}
 						/>
 						<label for='online' className={style.label_radio}>
 							Администратор онлайн
@@ -332,7 +334,7 @@ function Filter() {
 							type='radio'
 							id='open'
 							checked={open}
-							onChange={handleOpenChange}
+							onClick={() => setOpen(!open)}
 						/>
 						<label for='open' className={style.label_radio}>
 							Открытый канал
@@ -345,7 +347,7 @@ function Filter() {
 							type='radio'
 							id='verify'
 							checked={verify}
-							onChange={handleVerifyChange}
+							onClick={handleVerifyChange}
 						/>
 						<label for='verify' className={style.label_radio}>
 							Верифицированный канал
@@ -358,7 +360,7 @@ function Filter() {
 							type='radio'
 							id='check'
 							checked={check}
-							onChange={handleCheckChange}
+							onClick={handleCheckChange}
 						/>
 						<label for='check' className={style.label_radio}>
 							Проверенный канал
