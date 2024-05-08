@@ -5,7 +5,6 @@ import newBackground from '../../../assets/background_example.png'
 const date = new Date('2024-5-8')
 date.setUTCHours(9, 0, 0, 0)
 const dateCurrently = new Date()
-
 export const data = [
 	{
 		id: 20,
@@ -59,7 +58,7 @@ export const data = [
 		name_channel: 'Amex: новости',
 		url_Image_Channel: img,
 		url_background_channel: background,
-		public_type: true,
+		public_type: false,
 		count_subscribers: 5257,
 		count_views: 99912,
 		ERR: 25,

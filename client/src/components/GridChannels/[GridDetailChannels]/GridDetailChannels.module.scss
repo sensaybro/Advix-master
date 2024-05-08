@@ -1,4 +1,14 @@
 .wrapperGridDetailChannels {
 	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+	max-width: 1718px;
 	margin-top: 30px;
+}
+.wrapperLinkAndInfoAbout {
+	display: flex;
+	align-items: center;
+}
+.ImgBackground {
+	object-fit: cover;
 }
