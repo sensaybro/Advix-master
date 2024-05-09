@@ -1,0 +1,24 @@
+.wrapperStatistics {
+	margin-top: 20px;
+	display: flex;
+	width: 256px;
+	justify-content: space-between;
+	flex-wrap: nowrap;
+	div {
+		display: flex;
+		flex-direction: column;
+
+		div {
+			display: flex;
+			justify-content: flex-start;
+			flex-direction: row;
+
+			span {
+				font-size: 12px;
+				strong {
+					font-weight: 600;
+				}
+			}
+		}
+	}
+}

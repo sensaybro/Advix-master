@@ -22,6 +22,7 @@ export const data = [
 		count_subscribers: 5257,
 		count_views: 99912,
 		ERR: 25,
+		selected: 200,
 		position: 2,
 
 		priceObjects: [

@@ -6,14 +6,14 @@ import MainLayout from './components/HeaderOutlet/MainLayout'
 
 const App = () => {
 	return (
-		<>
+		<main>
 			<Routes>
 				<Route path='/' element={<MainLayout />}>
 					<Route path='/channels' element={<Channels />} />
 					<Route path='/channels/:id' element={<GridDetailChannels />} />
 				</Route>
 			</Routes>
-		</>
+		</main>
 	)
 }
 
