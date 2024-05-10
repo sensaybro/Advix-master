@@ -1,7 +1,7 @@
 .wrapperStatistics {
 	margin-top: 20px;
 	display: flex;
-	width: 256px;
+	width: 350px;
 	justify-content: space-between;
 	flex-wrap: nowrap;
 	div {
@@ -14,11 +14,14 @@
 			flex-direction: row;
 
 			span {
-				font-size: 12px;
+				font-size: 16px;
 				strong {
 					font-weight: 600;
 				}
 			}
 		}
 	}
+}
+.imageWrapper {
+	margin-right: 5px;
 }

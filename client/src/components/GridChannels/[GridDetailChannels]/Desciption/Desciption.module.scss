@@ -1,0 +1,25 @@
+.wrapperQuotes {
+	background-color: #f1f8fd;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: center;
+	text-align: center;
+	border-bottom-right-radius: var(--md-raduis);
+	border-top-right-radius: var(--md-raduis);
+	border-left: 2px solid var(--color-light-blue);
+	height: 190px;
+	width: 511px;
+	overflow: scroll;
+}
+.quotesStyle {
+	display: block;
+	margin-left: 10px;
+	width: 250px;
+	line-height: 1rem;
+	text-align: left;
+	quotes: initial;
+	font-size: 18px;
+	font-weight: 500;
+	font-family: 'Roboto', sans-serif;
+}

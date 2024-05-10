@@ -40,6 +40,12 @@ const ChannelComponent = ({ element }) => {
 	const handleClickedFavorite = () => {
 		setClicked(!clicked)
 	}
+	const ConvertIntToRUPercent = among => {
+		return new Intl.NumberFormat('ru', { style: 'percent' }).format(among)
+	}
+	const ConvertIntToRUNumberFormat = among => {
+		return new Intl.NumberFormat('ru', { style: 'decimal' }).format(among)
+	}
 	return (
 		<div className={style.wrapperChannelComponent}>
 			<div className={style.wrapperComponent}>
@@ -102,13 +108,19 @@ const ChannelComponent = ({ element }) => {
 									<img width={15} height={15} src={userIcon} alt='' />
 								</div>
 								<span>
-									<strong>{element.count_subscribers} </strong>подписчиков
+									<strong>
+										{ConvertIntToRUNumberFormat(element.count_subscribers)}{' '}
+									</strong>
+									подписчиков
 								</span>
 							</div>
 							<div>
 								<img width={15} height={15} src={eye} alt='' />
 								<span>
-									<strong>{element.count_views}</strong> просмотров на пост
+									<strong>
+										{ConvertIntToRUNumberFormat(element.count_views)}
+									</strong>{' '}
+									просмотров на пост
 								</span>
 							</div>
 						</div>
@@ -116,13 +128,13 @@ const ChannelComponent = ({ element }) => {
 							<div>
 								<img width={15} height={15} src={priceCMP} alt='' />
 								<span>
-									<strong>{element.CPM}</strong> CPM
+									<strong>{ConvertIntToRUNumberFormat(element.CPM)}</strong> CPM
 								</span>
 							</div>
 							<div>
 								<img width={15} height={15} src={price} alt='' />
 								<span>
-									<strong>{element.ERR}%</strong> ERR
+									<strong>{ConvertIntToRUPercent(element.ERR)}</strong> ERR
 								</span>
 							</div>
 						</div>

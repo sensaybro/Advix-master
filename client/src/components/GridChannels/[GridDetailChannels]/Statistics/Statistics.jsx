@@ -5,7 +5,13 @@ import price from '../../../../assets/price.svg'
 import priceCMP from '../../../../assets/priceCPM.svg'
 import style from './Statistics.module.scss'
 const Statistics = ({ data }) => {
-	console.log('statis', data)
+	const ConvertIntToRUNumberFormat = among => {
+		return new Intl.NumberFormat('ru', { style: 'decimal' }).format(among)
+	}
+	const ConvertIntToRUPercent = among => {
+		return new Intl.NumberFormat('ru', { style: 'percent' }).format(among)
+	}
+
 	return (
 		<div className={style.wrapperStatisticss}>
 			{' '}
@@ -13,30 +19,58 @@ const Statistics = ({ data }) => {
 				<div className={style.pairStatistics}>
 					<div className={style.wrapperOneStatistics}>
 						<div>
-							<img width={15} height={15} src={userIcon} alt='' />
+							<img
+								className={style.imageWrapper}
+								width={15}
+								height={15}
+								src={userIcon}
+								alt=''
+							/>
 						</div>
 						<span>
-							<strong>{data.count_subscribers} </strong>подписчиков
+							<strong>
+								{ConvertIntToRUNumberFormat(data.count_subscribers)}{' '}
+							</strong>
+							подписчиков
 						</span>
 					</div>
 					<div>
-						<img width={15} height={15} src={eye} alt='' />
+						<img
+							className={style.imageWrapper}
+							width={15}
+							height={15}
+							src={eye}
+							alt=''
+						/>
 						<span>
-							<strong>{data.count_views}</strong> просмотров на пост
+							<strong>{ConvertIntToRUNumberFormat(data.count_views)}</strong>{' '}
+							просмотров на пост
 						</span>
 					</div>
 				</div>
 				<div className={style.pairStatistics}>
 					<div>
-						<img width={15} height={15} src={priceCMP} alt='' />
+						<img
+							className={style.imageWrapper}
+							width={15}
+							height={15}
+							src={priceCMP}
+							alt=''
+						/>
 						<span>
-							<strong>{data.CPM}</strong> CPM
+							<strong>{ConvertIntToRUNumberFormat(data.CPM)}</strong> CPM
 						</span>
 					</div>
 					<div>
-						<img width={15} height={15} src={price} alt='' />
+						<img
+							className={style.imageWrapper}
+							width={15}
+							height={15}
+							src={price}
+							alt=''
+						/>
 						<span>
-							<strong>{data.ERR}%</strong> ERR
+							<strong>{ConvertIntToRUPercent(data.ERR)}</strong> ERR
 						</span>
 					</div>
 				</div>
