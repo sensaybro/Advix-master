@@ -28,9 +28,7 @@ const GridChannels = () => {
 				{data.map(element => {
 					return pages.label === 'Каталог' ? (
 						<>
-							{element.hot_state === false && (
-								<ChannelComponent element={element} />
-							)}
+							<ChannelComponent element={element} />
 							{element.hot_state === true && (
 								<ChannelComponentHot element={element} />
 							)}

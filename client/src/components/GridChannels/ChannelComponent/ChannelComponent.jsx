@@ -36,6 +36,13 @@ const ChannelComponent = ({ element }) => {
 			return newState
 		})
 	}
+	function truncateText(text, maxLength) {
+		if (text.length <= maxLength) {
+			return text
+		}
+		const truncatedText = text.substring(0, maxLength).trim()
+		return truncatedText + '...'
+	}
 
 	const handleClickedFavorite = () => {
 		setClicked(!clicked)
@@ -99,13 +106,21 @@ const ChannelComponent = ({ element }) => {
 
 				<div className={style.wrapperDescChannel}>
 					<div className={style.wrapperQuotes}>
-						<span className={style.quotesStyle}>{element.desc_channel}</span>
+						<span className={style.quotesStyle}>
+							{truncateText(element.desc_channel, 30)}
+						</span>
 					</div>
 					<div className={style.wrapperStatistics}>
 						<div className={style.pairStatistics}>
 							<div className={style.wrapperOneStatistics}>
 								<div>
-									<img width={15} height={15} src={userIcon} alt='' />
+									<img
+										className={style.wrapperImageIcon}
+										width={15}
+										height={15}
+										src={userIcon}
+										alt=''
+									/>
 								</div>
 								<span>
 									<strong>
@@ -115,7 +130,13 @@ const ChannelComponent = ({ element }) => {
 								</span>
 							</div>
 							<div>
-								<img width={15} height={15} src={eye} alt='' />
+								<img
+									className={style.wrapperImageIcon}
+									width={15}
+									height={15}
+									src={eye}
+									alt=''
+								/>
 								<span>
 									<strong>
 										{ConvertIntToRUNumberFormat(element.count_views)}
@@ -126,13 +147,25 @@ const ChannelComponent = ({ element }) => {
 						</div>
 						<div className={style.pairStatistics}>
 							<div>
-								<img width={15} height={15} src={priceCMP} alt='' />
+								<img
+									className={style.wrapperImageIcon}
+									width={15}
+									height={15}
+									src={priceCMP}
+									alt=''
+								/>
 								<span>
 									<strong>{ConvertIntToRUNumberFormat(element.CPM)}</strong> CPM
 								</span>
 							</div>
 							<div>
-								<img width={15} height={15} src={price} alt='' />
+								<img
+									className={style.wrapperImageIcon}
+									width={15}
+									height={15}
+									src={price}
+									alt=''
+								/>
 								<span>
 									<strong>{ConvertIntToRUPercent(element.ERR)}</strong> ERR
 								</span>

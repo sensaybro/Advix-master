@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import eye from '../../../assets/eye.svg'
 import favorite from '../../../assets/favorite.svg'
 import favorited from '../../../assets/favorited.svg'
@@ -8,7 +9,8 @@ import priceCMP from '../../../assets/priceCPM.svg'
 import style from './ChannelComponentHot.module.scss'
 const ChannelComponentHot = ({ element }) => {
 	const [clicked, setClicked] = useState(false)
-	const [timer, setTimer] = useState()
+	const [timer, setTimer] = useState(0)
+	const [counter, setCounter] = useState(false)
 	const [clickedTypePrice, setClickedTypePrice] = useState({
 		24: false,
 		48: false,
@@ -17,6 +19,28 @@ const ChannelComponentHot = ({ element }) => {
 		1: false,
 		2: false,
 	})
+	const firstDifference = data => {
+		console.log('data', data.getTime())
+		const current = new Date()
+		console.log('current', current.getTime())
+		const timeDifference = Math.floor(
+			(data.getTime() - current.getTime()) / 1000
+		)
+		console.log('rimwe', timeDifference)
+		setTimer(timeDifference)
+	}
+	const checkForHot = () => {
+		element.priceObjects.filter(element => {
+			if (element.for_hot === true) {
+				setCounter(true)
+			}
+		})
+	}
+	useEffect(() => {
+		firstDifference(element.priceObjects[3].hot_date)
+		checkForHot()
+	}, [])
+
 	const getForHot = () => {
 		return element.priceObjects.filter(element => {
 			return element.for_hot === true
@@ -26,6 +50,9 @@ const ChannelComponentHot = ({ element }) => {
 		return element.priceObjects.filter(element => {
 			return element.hot === true
 		})
+	}
+	const ConvertIntToRUPercent = among => {
+		return new Intl.NumberFormat('ru', { style: 'percent' }).format(among)
 	}
 	const formulaDiscount = () => {
 		console.log(getHot()[0])
@@ -53,7 +80,9 @@ const ChannelComponentHot = ({ element }) => {
 		})
 	}
 
-	const TimeDifference = ({ hotDate }) => {
+	//element.priceObjects[3].hot_date
+
+	const TimeDifferenceOne = ({ hotDate }) => {
 		const [currentTime, setCurrentTime] = useState(new Date())
 
 		useEffect(() => {
@@ -68,6 +97,7 @@ const ChannelComponentHot = ({ element }) => {
 		const timeDifference = Math.floor(
 			(hotDate.getTime() - currentTime.getTime()) / 1000
 		)
+
 		setTimer(timeDifference)
 		// if (timeDifference < 0) {
 		// 	return null // Если время отрицательное, не отображаем компонент
@@ -82,9 +112,23 @@ const ChannelComponentHot = ({ element }) => {
 	const handleClickedFavorite = () => {
 		setClicked(!clicked)
 	}
+	function truncateText(text, maxLength) {
+		if (text.length <= maxLength) {
+			return text
+		}
+		const truncatedText = text.substring(0, maxLength).trim()
+		return truncatedText + '...'
+	}
+	const ConvertIntToRUNumberFormat = among => {
+		return new Intl.NumberFormat('ru', { style: 'decimal' }).format(among)
+	}
+	const filtredDefaultPrice = element.priceObjects.filter(element => {
+		return element.for_hot === true
+	})
 
-	{
-		!timer < 0 && (
+	return (
+		counter &&
+		timer > 0 && (
 			<div className={style.wrapperChannelComponent}>
 				<div className={style.wrapperComponent}>
 					<div className={style.wrapperImg}>
@@ -100,18 +144,19 @@ const ChannelComponentHot = ({ element }) => {
 							/>
 						</button>
 						<div className={style.wrapperBackgroundImage}>
-							<img
-								width={302}
-								src={element.url_background_channel}
-								alt=''
-								srcset=''
-							/>
+							<img src={element.url_background_channel} alt='' srcset='' />
 						</div>
 
 						<div className={style.wrapperImgAndDesc}>
-							<img src={element.url_Image_Channel} alt='' srcset='' />
+							<Link to={`/channels/${element.id}`}>
+								<img src={element.url_Image_Channel} alt='' srcset='' />
+							</Link>
+
 							<div>
-								<h2>{element.name_channel}</h2>
+								<Link to={`/channels/${element.id}`}>
+									<h2>{element.name_channel}</h2>
+								</Link>
+
 								<div>
 									<span className={style.bordedElement}>
 										{element.Category}
@@ -126,36 +171,69 @@ const ChannelComponentHot = ({ element }) => {
 
 					<div className={style.wrapperDescChannel}>
 						<div className={style.wrapperQuotes}>
-							<span className={style.quotesStyle}>{element.desc_channel}</span>
+							<span className={style.quotesStyle}>
+								{truncateText(element.desc_channel, 30)}
+							</span>
 						</div>
 						<div className={style.wrapperStatistics}>
 							<div className={style.pairStatistics}>
 								<div className={style.wrapperOneStatistics}>
 									<div>
-										<img width={15} height={15} src={userIcon} alt='' />
+										<img
+											className={style.wrapperImageIcon}
+											width={15}
+											height={15}
+											src={userIcon}
+											alt=''
+										/>
 									</div>
 									<span>
-										<strong>{element.count_subscribers} </strong>подписчиков
+										<strong>
+											{ConvertIntToRUNumberFormat(element.count_subscribers)}{' '}
+										</strong>
+										подписчиков
 									</span>
 								</div>
 								<div>
-									<img width={15} height={15} src={eye} alt='' />
+									<img
+										className={style.wrapperImageIcon}
+										width={15}
+										height={15}
+										src={eye}
+										alt=''
+									/>
 									<span>
-										<strong>{element.count_views}</strong> просмотров на пост
+										<strong>
+											{ConvertIntToRUNumberFormat(element.count_views)}
+										</strong>{' '}
+										просмотров на пост
 									</span>
 								</div>
 							</div>
 							<div className={style.pairStatistics}>
 								<div>
-									<img width={15} height={15} src={priceCMP} alt='' />
+									<img
+										className={style.wrapperImageIcon}
+										width={15}
+										height={15}
+										src={priceCMP}
+										alt=''
+									/>
 									<span>
-										<strong>{element.CPM}</strong> CPM
+										<strong>{ConvertIntToRUNumberFormat(element.CPM)}</strong>{' '}
+										CPM
 									</span>
 								</div>
 								<div>
-									<img width={15} height={15} src={price} alt='' />
+									<img
+										className={style.wrapperImageIcon}
+										width={15}
+										height={15}
+										src={price}
+										alt=''
+									/>
 									<span>
-										<strong>{element.ERR}%</strong> ERR
+										<strong>{ConvertIntToRUPercent(element.ERR)}</strong> ERR
 									</span>
 								</div>
 							</div>
@@ -171,10 +249,10 @@ const ChannelComponentHot = ({ element }) => {
 						<div></div>
 						<div></div>
 					</div>
-					<hr color='#e1e5e8' />
+					<hr className={style.Line} color='#e1e5e8' />
 					<div className={style.wrapperDefaultPriceUnderline}>
 						<span>
-							{element.priceObjects[0].price.toLocaleString('ru-RU', {
+							{filtredDefaultPrice[0].price.toLocaleString('ru-RU', {
 								style: 'currency',
 								currency: 'RUB',
 								minimumFractionDigits: 0,
@@ -198,7 +276,7 @@ const ChannelComponentHot = ({ element }) => {
 					<div className={style.priceType}>
 						{element.priceObjects.map(
 							(time, index) =>
-								time.hot === true && (
+								time.for_hot === true && (
 									<button
 										key={index}
 										className={style.clickedBtn}
@@ -261,12 +339,12 @@ const ChannelComponentHot = ({ element }) => {
 				<div className={style.TimeAndDiscount}>
 					<div className={style.wrapperFormulaDis}>{formulaDiscount()}%</div>
 					<div className={style.TimeBuy}>
-						<TimeDifference hotDate={element.priceObjects[1].hot_date} />
+						<TimeDifferenceOne hotDate={element.priceObjects[3].hot_date} />
 					</div>
 				</div>
 			</div>
 		)
-	}
+	)
 }
 
 export default ChannelComponentHot
