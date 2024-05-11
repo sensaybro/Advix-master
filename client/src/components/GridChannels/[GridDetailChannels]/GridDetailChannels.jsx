@@ -7,6 +7,7 @@ import Description from './Desciption/Description'
 import style from './GridDetailChannels.module.scss'
 import InfoAboutPublic from './InfoAboutPublic/InfoAboutPublic'
 import LinkChannel from './LinkChannel/LinkChannel'
+import PriceDefaultBlock from './PriceDefaultBlock/PriceDefaultBlock'
 import Statistics from './Statistics/Statistics'
 const GridDetailChannels = () => {
 	const { id } = useParams()
@@ -76,15 +77,20 @@ const GridDetailChannels = () => {
 					</div>
 				</div>
 				<div className={style.wrapperStatistics}>
-					<div className={style.wrapperCountViews}>
-						<span>{ConvertIntToENNumberFormat(elementDetail.count_views)}</span>
+					<div className={style.wrapperTwoStatistics}>
+						<div className={style.wrapperCountViews}>
+							<span>
+								{ConvertIntToENNumberFormat(elementDetail.count_views)}
+							</span>
 
-						<img width={28} height={22} src={eye} alt='' />
+							<img width={28} height={22} src={eye} alt='' />
+						</div>
+						<div className={style.wrapperCountViews}>
+							<span>{ConvertIntToRUNumberFormat(elementDetail.selected)}</span>
+							<img width={28} height={22} src={favorite} alt='' />
+						</div>
 					</div>
-					<div className={style.wrapperCountViews}>
-						<span>{ConvertIntToRUNumberFormat(elementDetail.selected)}</span>
-						<img width={28} height={22} src={favorite} alt='' />
-					</div>
+					<PriceDefaultBlock data={elementDetail} />
 				</div>
 			</div>
 		</div>

@@ -1,0 +1,65 @@
+.wrapperDefaultPrice {
+	span {
+		font-size: 30px;
+		font-weight: 600;
+		font-family: 'Roboto', sans-serif;
+		color: var(--color-price-default);
+	}
+}
+.priceType {
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	background-color: var(--color-price-type);
+	height: 25px;
+	width: 159px;
+	border-radius: var(--l-raduis);
+	padding-right: 3px;
+	padding-left: 3px;
+	.nonClickedButton {
+		height: 21px;
+		width: 45px;
+		font-weight: 500;
+		color: var(--color-light-gray);
+		background: none;
+		margin-right: 3px;
+		font-size: 12px;
+		&:last-of-type {
+			margin-right: 0;
+		}
+	}
+	.clickedBtn {
+		width: 46px;
+		background-color: #fff;
+		border-radius: 6px;
+		height: 21px;
+		font-weight: 500;
+		color: var(--color-black);
+
+		margin-right: 3px;
+		font-size: 12px;
+		&:last-of-type {
+			margin-right: 0;
+		}
+	}
+}
+
+.wrapperRootPriceSwitcher {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.BtnBuy {
+	background-color: var(--color-dark-blue);
+	width: 243px;
+	height: 45px;
+	border-radius: var(--md-raduis);
+
+	span {
+		color: var(--color-white);
+		font-size: 18px;
+		font-weight: 600;
+	}
+}

@@ -50,7 +50,9 @@
 	width: 121px;
 	height: 42px;
 	border-radius: 20px;
-
+	img {
+		margin-right: 5px;
+	}
 	a {
 		display: flex;
 		flex-direction: row;

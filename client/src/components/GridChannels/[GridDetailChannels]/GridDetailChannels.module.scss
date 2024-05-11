@@ -74,6 +74,8 @@
 		display: flex;
 		width: 380px;
 		justify-content: space-between;
+		align-items: center;
+		flex-direction: column;
 	}
 
 	.wrapperCountViews {
@@ -158,4 +160,9 @@
 	//margin-bottom: -40%;
 	//height: 300px;
 	//padding-bottom: 30%;
+}
+
+.wrapperTwoStatistics {
+	display: flex;
+	justify-content: space-between;
 }
