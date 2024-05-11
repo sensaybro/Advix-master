@@ -1,0 +1,15 @@
+.wrapperLinkChannel {
+	display: flex;
+	justify-content: center;
+	color: var(--color-dark-blue);
+	background: none;
+	font-size: 16px;
+	font-weight: 600;
+	width: 310px;
+	height: 45px;
+	align-items: center;
+	font-family: 'Roboto', sans-serif;
+	padding: 7px 10px 7px 10px;
+	border-radius: 15px;
+	border: 1px solid var(--color-dark-blue);
+}

@@ -1,11 +1,8 @@
-@import '../../scss/_vars.scss';
-
 .filter {
 	position: absolute;
-	top: 160px;
-	width: 270px;
+	top: 60px;
+	width: 310px;
 	height: 835px;
-	position: fixed;
 
 	padding: 20px;
 	border-radius: 15px;
@@ -29,7 +26,7 @@
 .filter_block {
 	width: 90%;
 	height: 150px;
-	border-bottom: 1px solid var(--color-dark-gray);
+	border-bottom: 1px solid var(--color-gray);
 
 	margin-bottom: 20px;
 }
@@ -52,6 +49,10 @@
 
 	margin-top: 3px;
 	margin-bottom: 15px;
+	span {
+		margin-bottom: 10px;
+		display: block;
+	}
 }
 
 button {
@@ -98,6 +99,8 @@ button {
 
 	display: flex;
 	align-items: center;
+
+	margin-left: 5px;
 }
 
 .reload_btn:active img {
@@ -215,6 +218,7 @@ input[type='number']::-webkit-outer-spin-button {
 .btn_search {
 	background: none;
 	border-style: none;
+	width: 100%;
 
 	color: inherit;
 	font-family: inherit;

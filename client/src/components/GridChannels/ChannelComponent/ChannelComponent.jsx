@@ -36,9 +36,22 @@ const ChannelComponent = ({ element }) => {
 			return newState
 		})
 	}
+	function truncateText(text, maxLength) {
+		if (text.length <= maxLength) {
+			return text
+		}
+		const truncatedText = text.substring(0, maxLength).trim()
+		return truncatedText + '...'
+	}
 
 	const handleClickedFavorite = () => {
 		setClicked(!clicked)
+	}
+	const ConvertIntToRUPercent = among => {
+		return new Intl.NumberFormat('ru', { style: 'percent' }).format(among)
+	}
+	const ConvertIntToRUNumberFormat = among => {
+		return new Intl.NumberFormat('ru', { style: 'decimal' }).format(among)
 	}
 	return (
 		<div className={style.wrapperChannelComponent}>
@@ -93,36 +106,68 @@ const ChannelComponent = ({ element }) => {
 
 				<div className={style.wrapperDescChannel}>
 					<div className={style.wrapperQuotes}>
-						<span className={style.quotesStyle}>{element.desc_channel}</span>
+						<span className={style.quotesStyle}>
+							{truncateText(element.desc_channel, 30)}
+						</span>
 					</div>
 					<div className={style.wrapperStatistics}>
 						<div className={style.pairStatistics}>
 							<div className={style.wrapperOneStatistics}>
 								<div>
-									<img width={15} height={15} src={userIcon} alt='' />
+									<img
+										className={style.wrapperImageIcon}
+										width={15}
+										height={15}
+										src={userIcon}
+										alt=''
+									/>
 								</div>
 								<span>
-									<strong>{element.count_subscribers} </strong>подписчиков
+									<strong>
+										{ConvertIntToRUNumberFormat(element.count_subscribers)}{' '}
+									</strong>
+									подписчиков
 								</span>
 							</div>
 							<div>
-								<img width={15} height={15} src={eye} alt='' />
+								<img
+									className={style.wrapperImageIcon}
+									width={15}
+									height={15}
+									src={eye}
+									alt=''
+								/>
 								<span>
-									<strong>{element.count_views}</strong> просмотров на пост
+									<strong>
+										{ConvertIntToRUNumberFormat(element.count_views)}
+									</strong>{' '}
+									просмотров на пост
 								</span>
 							</div>
 						</div>
 						<div className={style.pairStatistics}>
 							<div>
-								<img width={15} height={15} src={priceCMP} alt='' />
+								<img
+									className={style.wrapperImageIcon}
+									width={15}
+									height={15}
+									src={priceCMP}
+									alt=''
+								/>
 								<span>
-									<strong>{element.CPM}</strong> CPM
+									<strong>{ConvertIntToRUNumberFormat(element.CPM)}</strong> CPM
 								</span>
 							</div>
 							<div>
-								<img width={15} height={15} src={price} alt='' />
+								<img
+									className={style.wrapperImageIcon}
+									width={15}
+									height={15}
+									src={price}
+									alt=''
+								/>
 								<span>
-									<strong>{element.ERR}%</strong> ERR
+									<strong>{ConvertIntToRUPercent(element.ERR)}</strong> ERR
 								</span>
 							</div>
 						</div>

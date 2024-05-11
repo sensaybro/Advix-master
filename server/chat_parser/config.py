@@ -7,4 +7,4 @@ DB_PORT = 6543
 DB_DATABASE = "postgres"
 
 ADMIN = 1435437398 # ид пользователя к которму будут отправляться сообщения о вступлении бота в каналы
-DOMAIN = 'https://advix-master.onrender.com'
+DOMAIN = 'https://site.com'

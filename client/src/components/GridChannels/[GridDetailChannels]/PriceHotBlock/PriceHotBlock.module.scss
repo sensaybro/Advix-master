@@ -1,0 +1,150 @@
+.wrapperDefaultPriceUnderline {
+	/* position: absolute;
+	left: 60%;
+	top: -40%; */
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	.wrapperDiscPrice {
+		font-size: 16px;
+		font-weight: 600;
+		text-decoration: line-through;
+		color: var(--color-light-gray);
+	}
+}
+.wrapperDefaultPrice {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	position: relative;
+	span {
+		font-size: 64px;
+		font-weight: 600;
+		font-family: 'Roboto', sans-serif;
+		color: var(--color-price-default);
+	}
+}
+.wrapperTypePrice {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	.priceType {
+		align-items: center;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		//background-color: var(--color-price-type);
+		height: 25px;
+
+		border-radius: var(--l-raduis);
+		padding-right: 3px;
+		padding-left: 3px;
+
+		.clickedBtn {
+			display: flex;
+			align-items: center;
+
+			height: 20px;
+			background: none;
+			border: 1px solid #d9d9d9;
+			border-radius: 6px;
+
+			padding: 4px;
+
+			//margin-right: 3px;
+			span {
+				font-size: 10px;
+				color: var(--color-light-gray);
+				font-weight: 500;
+			}
+		}
+	}
+}
+.wrapperTitleHot {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	span {
+		font-size: 16px;
+		font-weight: 600;
+		color: var(--color-dark-yellow);
+	}
+}
+
+.TimeBuy {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	margin-left: 10px;
+	width: 136px;
+	height: 15px;
+	background-color: var(--color-red);
+	font-size: 12px;
+	font-weight: 600;
+	border-radius: 10px;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	padding-left: 2px;
+	padding-right: 2px;
+
+	color: var(--color-white);
+}
+.wrapperRootHotPrice {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	width: 387px;
+	height: 275px;
+	border: 3px solid var(--color-dark-yellow);
+	border-radius: var(--md-raduis);
+	box-shadow: var(--shadow-yellow);
+	margin-bottom: 35px;
+}
+.wrapperBtnHot {
+	display: flex;
+	justify-content: center;
+
+	width: 100%;
+}
+.BtnBuy {
+	background-color: var(--color-dark-yellow);
+	width: 243px;
+	height: 45px;
+	border-radius: var(--md-raduis);
+
+	span {
+		color: var(--color-white);
+		font-size: 18px;
+		font-weight: 600;
+	}
+}
+.TimeAndDiscount {
+	height: 15px;
+	display: flex;
+	font-size: 12px;
+	font-weight: 600;
+
+	justify-content: space-between;
+	text-align: center;
+	align-items: center;
+	color: var(--color-white);
+	.wrapperFormulaDis {
+		width: 44px;
+		height: 15px;
+		border-radius: 10px;
+		padding-top: 1px;
+		padding-bottom: 1px;
+		padding-left: 2px;
+		padding-right: 2px;
+		background-color: var(--color-red);
+		font-size: 12px;
+		font-weight: 600;
+
+		color: var(--color-white);
+	}
+}
+.wrapperDiscountTime {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+}

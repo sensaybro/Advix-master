@@ -1,0 +1,22 @@
+.wrapperInfoAboutPublic {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	.PrivateLink {
+		font-size: 14px;
+		font-weight: 500;
+		color: var(--color-light-gray);
+		span {
+			color: var(--color-red);
+		}
+	}
+	.OpenLink {
+		font-size: 14px;
+		font-weight: 500;
+		color: var(--color-light-gray);
+		span {
+			color: var(--color-dark-green);
+		}
+	}
+}

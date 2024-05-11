@@ -19,7 +19,7 @@ class Chanel(Base):
     __tablename__ = 'Channel'
 
     id = Column(Integer, primary_key=True, autoincrement=True)
-    User_id = Column(Integer, default=0)
+    User_id = Column(Integer)
     Category = Column(String, default='')
     language = Column(String, default='')
     name_channel = Column(String, default='')
@@ -30,18 +30,18 @@ class Chanel(Base):
     url_Image_Channel = Column(String, default='')
     public_type = Column(Boolean, default=False)
     count_subscribers = Column(Integer, default=0)
-    count_views = Column(Integer, default=0)
+    views = Column(Integer, default=0)
+    reactions = Column(Integer, default=0)
+    posts_count = Column(Integer, default=0)
     ERR = Column(Integer, default=0)
-    position = Column(Integer, default=0)
+    position = Column(Integer)
     default_price = Column(Integer, default=0)
     default_time_day = Column(Integer, default=0)
     hot_price = Column(Integer, default=0)
     CPM = Column(Integer, default=0)
     hot_state = Column(Boolean, default=False)
-    hot_date = Column(DateTime, default=datetime.utcfromtimestamp(0))
-    currently_date = Column(DateTime, default=datetime.utcfromtimestamp(0))
-
-
+    verified = Column(Integer)
+    
 class User(Base):
     __tablename__ = "User"
 
@@ -49,7 +49,7 @@ class User(Base):
     id_telegram = Column(Integer, unique=True)
     link_image = Column(String)
     user_name = Column(String, unique=True)
-
+    is_premium = Column(Boolean)
 
 class Secrets(Base):
     __tablename__ = "Connect"
