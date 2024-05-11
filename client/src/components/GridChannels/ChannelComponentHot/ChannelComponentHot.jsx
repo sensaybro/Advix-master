@@ -20,13 +20,12 @@ const ChannelComponentHot = ({ element }) => {
 		2: false,
 	})
 	const firstDifference = data => {
-		console.log('data', data.getTime())
 		const current = new Date()
-		console.log('current', current.getTime())
+
 		const timeDifference = Math.floor(
 			(data.getTime() - current.getTime()) / 1000
 		)
-		console.log('rimwe', timeDifference)
+
 		setTimer(timeDifference)
 	}
 	const checkForHot = () => {
@@ -55,7 +54,6 @@ const ChannelComponentHot = ({ element }) => {
 		return new Intl.NumberFormat('ru', { style: 'percent' }).format(among)
 	}
 	const formulaDiscount = () => {
-		console.log(getHot()[0])
 		const a = getForHot()[0].price
 		const b = getHot()[0].price
 		const d = a - b

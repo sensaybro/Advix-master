@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import logo from '../../assets/advix_blue.svg'
 import telegram from '../../assets/telegram-svgrepo-com.svg'
@@ -22,6 +22,13 @@ const Header = () => {
 	const { pages } = useSelector(state => state.selectedCatalog)
 	const { theme } = useSelector(state => state.theme)
 	console.log(theme)
+	useEffect(() => {
+		if (!theme) {
+			document.body.classList.add('dark')
+		} else {
+			document.body.classList.remove('dark')
+		}
+	}, [theme])
 	return (
 		<header className={style.wrapperHeader}>
 			<div>
