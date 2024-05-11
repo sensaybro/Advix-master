@@ -36,10 +36,17 @@
 }
 .wrapperChannelName {
 	display: flex;
-	width: 90%;
+
 	//	top: 80%;
 	//margin-top: -20px;
 	justify-content: space-evenly;
+	margin-left: 110px;
+	margin-right: 110px;
+	background-color: var(--color-white);
+	box-shadow: var(--shadow);
+	margin-bottom: 32px;
+	border-bottom-left-radius: var(--md-raduis);
+	border-bottom-right-radius: var(--md-raduis);
 	//align-items: center;
 	/* .WrapperStatistics {
 		top: 100%;
@@ -70,7 +77,6 @@
 		} */
 	}
 	.wrapperStatistics {
-		margin-top: 36px;
 		display: flex;
 		width: 380px;
 		justify-content: space-between;
@@ -164,5 +170,12 @@
 
 .wrapperTwoStatistics {
 	display: flex;
-	justify-content: space-between;
+	flex-direction: row;
+	margin-top: 15px;
+	margin-bottom: 27px;
+	div {
+		&:first-of-type {
+			margin-right: 21px;
+		}
+	}
 }

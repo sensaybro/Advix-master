@@ -30,6 +30,9 @@ const PriceDefaultBlock = ({ data }) => {
 	}
 	return (
 		<div className={style.wrapperRootPriceSwitcher}>
+			<div className={style.wrapperTitle}>
+				<span>КУПИТЬ РЕКЛАМУ</span>
+			</div>
 			<div className={style.wrapperDefaultPrice}>
 				<span>
 					{data.priceObjects[indexY].price.toLocaleString('ru-RU', {
@@ -39,32 +42,39 @@ const PriceDefaultBlock = ({ data }) => {
 					})}
 				</span>
 			</div>
-			<div className={style.priceType}>
-				{data.priceObjects.map(
-					(time, index) =>
-						time.hot === false && (
-							<button
-								key={index}
-								className={
-									clickedTypePrice[time.time]
-										? style.clickedBtn
-										: style.nonClickedButton
-								}
-								onClick={() => handleClickedTypePrice(time.time, index)}
-							>
-								{time.time === 24 && '1/24'}
-								{time.time === 48 && '1/48'}
-								{time.time === 72 && '1/72'}
-								{time.time === 0 && 'натив'}
-								{time.time === 1 && 'репост'}
-								{time.time === 2 && 'б/уд'}
-								{time.hot_date}
-							</button>
-						)
-				)}
+			<div className={style.wrapperPriceType}>
+				<div className={style.priceType}>
+					{data.priceObjects.map(
+						(time, index) =>
+							time.hot === false && (
+								<button
+									key={index}
+									className={
+										clickedTypePrice[time.time]
+											? style.clickedBtn
+											: style.nonClickedButton
+									}
+									onClick={() => handleClickedTypePrice(time.time, index)}
+								>
+									{time.time === 24 && '1/24'}
+									{time.time === 48 && '1/48'}
+									{time.time === 72 && '1/72'}
+									{time.time === 0 && 'натив'}
+									{time.time === 1 && 'репост'}
+									{time.time === 2 && 'б/уд'}
+									{time.hot_date}
+								</button>
+							)
+					)}
+				</div>
 			</div>
-			<button className={style.BtnBuy}>
-				<span>КУПИТЬ</span>
+			<div className={style.wrapperByBtn}>
+				<button className={style.BtnBuy}>
+					<span>КУПИТЬ</span>
+				</button>
+			</div>
+			<button className={style.wrapperHotTitle}>
+				<span>ПОДПИСАТЬСЯ НА ГОРЯЩИЕ 🔥</span>
 			</button>
 		</div>
 	)

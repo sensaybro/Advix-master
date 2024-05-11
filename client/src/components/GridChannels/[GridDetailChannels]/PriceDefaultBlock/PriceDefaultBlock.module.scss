@@ -1,55 +1,68 @@
 .wrapperDefaultPrice {
+	width: 100%;
+	display: flex;
+	justify-content: center;
 	span {
-		font-size: 30px;
+		font-size: 64px;
 		font-weight: 600;
 		font-family: 'Roboto', sans-serif;
 		color: var(--color-price-default);
 	}
 }
-.priceType {
-	align-items: center;
+.wrapperPriceType {
 	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	background-color: var(--color-price-type);
-	height: 25px;
-	width: 159px;
-	border-radius: var(--l-raduis);
-	padding-right: 3px;
-	padding-left: 3px;
-	.nonClickedButton {
-		height: 21px;
-		width: 45px;
-		font-weight: 500;
-		color: var(--color-light-gray);
-		background: none;
-		margin-right: 3px;
-		font-size: 12px;
-		&:last-of-type {
-			margin-right: 0;
+	justify-content: center;
+	width: 100%;
+	.priceType {
+		align-items: center;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		background-color: var(--color-price-type);
+		height: 25px;
+		width: 159px;
+		border-radius: var(--l-raduis);
+		padding-right: 3px;
+		padding-left: 3px;
+		.nonClickedButton {
+			height: 21px;
+			width: 45px;
+			font-weight: 500;
+			color: var(--color-light-gray);
+			background: none;
+			margin-right: 3px;
+			font-size: 12px;
+			&:last-of-type {
+				margin-right: 0;
+			}
 		}
-	}
-	.clickedBtn {
-		width: 46px;
-		background-color: #fff;
-		border-radius: 6px;
-		height: 21px;
-		font-weight: 500;
-		color: var(--color-black);
+		.clickedBtn {
+			width: 46px;
+			background-color: #fff;
+			border-radius: 6px;
+			height: 21px;
+			font-weight: 500;
+			color: var(--color-black);
 
-		margin-right: 3px;
-		font-size: 12px;
-		&:last-of-type {
-			margin-right: 0;
+			margin-right: 3px;
+			font-size: 12px;
+			&:last-of-type {
+				margin-right: 0;
+			}
 		}
 	}
 }
 
 .wrapperRootPriceSwitcher {
 	display: flex;
-	flex-direction: column;
-	justify-content: center;
+	flex-wrap: wrap;
 	align-items: center;
+	align-content: space-around;
+	width: 387px;
+	height: 275px;
+	border-radius: var(--md-raduis);
+	box-shadow: var(--shadow);
+	margin-bottom: 27px;
 }
 .BtnBuy {
 	background-color: var(--color-dark-blue);
@@ -62,4 +75,30 @@
 		font-size: 18px;
 		font-weight: 600;
 	}
+}
+.wrapperByBtn {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+}
+
+.wrapperTitle {
+	margin-top: 20px;
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	span {
+		font-size: 16px;
+		font-weight: 600;
+		color: var(--color-light-gray-secondary);
+	}
+}
+.wrapperHotTitle {
+	background: none;
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	color: var(--color-gray-third);
+	font-size: 10px;
+	font-weight: 500;
 }
