@@ -21,7 +21,7 @@ const Header = () => {
 	}
 	const { pages } = useSelector(state => state.selectedCatalog)
 	const { theme } = useSelector(state => state.theme)
-	console.log(theme)
+
 	useEffect(() => {
 		if (!theme) {
 			document.body.classList.add('dark')
