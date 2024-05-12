@@ -72,7 +72,7 @@
 		}
 	}
 	.wrapperQuotes {
-		background-color: #f1f8fd;
+		background-color: var(--color-quotes);
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
@@ -121,7 +121,7 @@
 
 .forFutureFeatures {
 	position: absolute;
-	top: 270px;
+	top: 266px;
 	left: 50%;
 	transform: translate(-50%, -50%);
 
@@ -131,12 +131,12 @@
 		width: 50px;
 		height: 19px;
 		border-radius: var(--md-raduis);
-		background-color: #f1f8fd;
+		background-color: var(--color-quotes);
 	}
 }
 .Line {
 	position: absolute;
-	top: 286px;
+	top: 283px;
 	width: 256px;
 }
 .wrapperDefaultPrice {

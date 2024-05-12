@@ -10,6 +10,7 @@ import LinkChannel from './LinkChannel/LinkChannel'
 import PriceDefaultBlock from './PriceDefaultBlock/PriceDefaultBlock'
 import PriceHotBlock from './PriceHotBlock/PriceHotBlock'
 import Statistics from './Statistics/Statistics'
+import StatisticsTgStat from './StatisticsTgStat/StatisticsTgStat'
 const GridDetailChannels = () => {
 	const { id } = useParams()
 
@@ -76,6 +77,7 @@ const GridDetailChannels = () => {
 								<Description content={elementDetail.desc_channel} />
 								<hr className={style.line} />
 							</div>
+							<StatisticsTgStat name_channel={elementDetail.link_Cannel} />
 						</div>
 					</div>
 					<div className={style.wrapperStatistics}>

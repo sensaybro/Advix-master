@@ -13,12 +13,11 @@ app = Client(
 @app.on_message()
 async def handle_message(app: Client, message: types.Message):
 
-    if not os.path.exists(f"uploads/{message.from_user.id}.#"): # проверка существует ли аватарка
-        chat = message.chat
+    if not os.path.exists(f"uploads/{message.from_user.id}.jpg"): # проверка существует ли аватарка
         file_path = None
-        if chat.photo:
-            await app.download_media(chat.photo.big_file_id, f"uploads/{chat.id}.jpg")
-            file_path = f"uploads/{chat.id}.jpg"
+        if message.from_user.photo:
+            await app.download_media(message.from_user.photo.big_file_id, f"uploads/{message.from_user.id}.jpg")
+            file_path = f"uploads/{message.from_user.id}.jpg"
         
     else: file_path = f"uploads/{message.from_user.id}.jpg"
 

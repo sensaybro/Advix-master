@@ -62,7 +62,7 @@
 		}
 	}
 	.wrapperQuotes {
-		background-color: #f1f8fd;
+		background-color: var(--color-quotes);
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
@@ -121,12 +121,12 @@
 		width: 50px;
 		height: 19px;
 		border-radius: var(--md-raduis);
-		background-color: #f1f8fd;
+		background-color: var(--color-quotes);
 	}
 }
 hr {
 	position: absolute;
-	top: 290px;
+	top: 287px;
 	width: 256px;
 }
 .wrapperDefaultPrice {
@@ -173,7 +173,7 @@ hr {
 		border-radius: 6px;
 		height: 21px;
 		font-weight: 500;
-		color: var(--color-black);
+		color: var(--color-light-gray-five);
 
 		margin-right: 3px;
 		font-size: 12px;

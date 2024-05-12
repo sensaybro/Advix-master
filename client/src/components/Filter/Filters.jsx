@@ -26,6 +26,9 @@ function Filter() {
 
 	const langList = ['Русский', 'Английский', 'Арабский']
 	const default_argLang = 'Не выбрано'
+	const ConvertIntToRUPercent = among => {
+		return new Intl.NumberFormat('ru', { style: 'percent' }).format(among)
+	}
 
 	// For block-2 and block-3
 	const [filters, setFilters] = useState({
@@ -55,7 +58,7 @@ function Filter() {
 		} else if (key === 'views') {
 			values = data.map(item => item.count_views)
 		} else if (key === 'err') {
-			values = data.map(item => item.ERR)
+			values = data.map(item => ConvertIntToRUPercent(item.ERR))
 		}
 		const min = Math.min(...values)
 		const max = Math.max(...values)

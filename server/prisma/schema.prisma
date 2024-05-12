@@ -35,7 +35,7 @@ model Channel {
   desc_channel           String
   link_Cannel            String
   link_Type_Boolean      Boolean
-  url_Image_Channel      String
+  url_Image_Channel      String?
   url_background_channel String?
   verified               String?
   selected               Int?
@@ -60,7 +60,7 @@ model User {
   User_id     Int       @id @default(autoincrement())
   id_telegram BigInt    @unique
   is_premium  Boolean
-  link_image  String
+  link_image  String?
   user_name   String    @unique
   channels    Channel[]
 }

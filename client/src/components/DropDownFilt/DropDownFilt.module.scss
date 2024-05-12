@@ -29,7 +29,7 @@
 	ul {
 		list-style-type: none;
 		padding: 0;
-		background-color: var(--color-white);
+		background-color: var(--color-white-background);
 		text-align: center;
 		border-radius: 7px;
 		border: 1px solid var(--color-light-gray);
@@ -47,7 +47,7 @@
 			padding-top: 5px;
 			padding-bottom: 5px;
 			font-family: 'Roboto', sans-serif;
-			// border-bottom: 1px solid var(--color-bottom-list);
+			border-bottom: 1px solid var(--color-bottom-list);
 			&:last-of-type {
 				border-bottom: none;
 			}
