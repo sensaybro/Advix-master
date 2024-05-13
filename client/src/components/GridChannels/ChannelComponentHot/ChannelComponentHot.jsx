@@ -135,8 +135,7 @@ const ChannelComponentHot = ({ element }) => {
 							className={style.wrapperFavorite}
 						>
 							<img
-								width={18}
-								height={17}
+								className={style.wrapperFavoriteImg}
 								src={!clicked ? favorite : favorited}
 								alt=''
 							/>
@@ -179,8 +178,6 @@ const ChannelComponentHot = ({ element }) => {
 									<div>
 										<img
 											className={style.wrapperImageIcon}
-											width={15}
-											height={15}
 											src={userIcon}
 											alt=''
 										/>
@@ -193,13 +190,7 @@ const ChannelComponentHot = ({ element }) => {
 									</span>
 								</div>
 								<div>
-									<img
-										className={style.wrapperImageIcon}
-										width={15}
-										height={15}
-										src={eye}
-										alt=''
-									/>
+									<img className={style.wrapperImageIcon} src={eye} alt='' />
 									<span>
 										<strong>
 											{ConvertIntToRUNumberFormat(element.count_views)}
@@ -212,8 +203,6 @@ const ChannelComponentHot = ({ element }) => {
 								<div>
 									<img
 										className={style.wrapperImageIcon}
-										width={15}
-										height={15}
 										src={priceCMP}
 										alt=''
 									/>
@@ -223,13 +212,7 @@ const ChannelComponentHot = ({ element }) => {
 									</span>
 								</div>
 								<div>
-									<img
-										className={style.wrapperImageIcon}
-										width={15}
-										height={15}
-										src={price}
-										alt=''
-									/>
+									<img className={style.wrapperImageIcon} src={price} alt='' />
 									<span>
 										<strong>{ConvertIntToRUPercent(element.ERR)}</strong> ERR
 									</span>

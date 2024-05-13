@@ -12,7 +12,7 @@ export const data = [
 		id_telegram: -45456567,
 		desc_channel:
 			'Отличный канал! Условия в ЛС! Постоянно на закупах!  Не рекламируем: ставки. К постам кнопки не добавляем! Моментальное подтверждение!',
-		link_Cannel: 'https://t.me/gdf5455gh',
+		link_Cannel: 'HtmlGram1',
 		link_Type_Boolean: true,
 		name_channel: 'Test: новости',
 		url_Image_Channel: not_rounded,

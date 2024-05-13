@@ -11,43 +11,43 @@
 	position: relative;
 
 	button {
-		width: 204px;
-		height: 28px;
+		width: 12.75rem;
+		height: 1.75rem;
 
 		background: none;
 
-		border-radius: 7px;
-		border: 1px solid var(--color-light-gray);
+		border-radius: 0.4375rem;
+		border: 0.0625rem solid var(--color-light-gray);
 
-		font-size: 12px;
+		font-size: 0.75rem;
 		font-family: inherit;
 		color: inherit;
 
-		padding: 5px 15px 5px 50px;
+		padding: 0.3125rem 0.9375rem 0.3125rem 3.125rem;
 	}
 
 	ul {
 		list-style-type: none;
 		padding: 0;
-		background-color: var(--color-white);
+		background-color: var(--color-white-background);
 		text-align: center;
-		border-radius: 7px;
-		border: 1px solid var(--color-light-gray);
+		border-radius: 0.4375rem;
+		border: 0.0625rem solid var(--color-light-gray);
 		overflow: hidden;
 		box-shadow: var(--shadow);
 		position: absolute;
 		z-index: 100;
-		top: 35px;
+		top: 2.1875rem;
 
 		li {
-			width: 204px;
-			font-size: 14px;
+			width: 12.75rem;
+			font-size: 0.875rem;
 			font-weight: 500;
 
-			padding-top: 5px;
-			padding-bottom: 5px;
+			padding-top: 0.3125rem;
+			padding-bottom: 0.3125rem;
 			font-family: 'Roboto', sans-serif;
-			// border-bottom: 1px solid var(--color-bottom-list);
+			border-bottom: 0.0625rem solid var(--color-bottom-list);
 			&:last-of-type {
 				border-bottom: none;
 			}
@@ -58,20 +58,20 @@
 	}
 }
 .polygonDropDown {
-	margin-top: 2px;
+	margin-top: 0.125rem;
 	width: 0;
 	height: 0;
-	border-left: 4px solid transparent;
-	border-right: 4px solid transparent;
-	border-bottom: 6px solid #99a8b2;
+	border-left: 0.25rem solid transparent;
+	border-right: 0.25rem solid transparent;
+	border-bottom: 0.375rem solid #99a8b2;
 }
 .polygonDropDownRotate {
-	margin-top: 2px;
+	margin-top: 0.125rem;
 	width: 0;
 	height: 0;
-	border-left: 4px solid transparent;
-	border-right: 4px solid transparent;
-	border-top: 6px solid #99a8b2;
+	border-left: 0.25rem solid transparent;
+	border-right: 0.25rem solid transparent;
+	border-top: 0.375rem solid #99a8b2;
 	border-bottom: none;
 }
 
@@ -87,7 +87,7 @@
 	display: flex;
 	align-items: center;
 
-	margin-left: 5px;
+	margin-left: 0.3125rem;
 }
 
 .reload_btn:active img {

@@ -3,51 +3,61 @@
 	align-items: flex-start;
 	.blockArrowImg {
 		display: block;
-		margin-top: 10px;
-		margin-right: 10px;
+		position: absolute;
+		width: 1.5rem;
+		height: 1.5rem;
+		left: 72%;
+		margin-top: 0.625rem;
+		margin-right: 0.625rem;
 	}
 	.rotatedArrowImg {
 		transform: rotate(180deg);
+		position: absolute;
+		width: 1.5rem;
+		height: 1.5rem;
+		left: 72%;
 		display: block;
-		margin-top: 10px;
-		margin-right: 10px;
+		margin-top: 0.625rem;
+		margin-right: 0.625rem;
 	}
 }
 .wrapperDropDown {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	position: absolute;
+	left: 75%;
 	cursor: pointer;
 	button {
 		background: none;
-		border: 1px solid var(--color-light-gray);
+		border: 0.0625rem solid var(--color-light-gray);
 		border-radius: var(--md-raduis);
 		color: var(--color-light-gray);
-		padding: 5px 20px 5px 20px;
-		width: 243px;
-		height: 45px;
-		font-size: 16px;
+		padding: 0.3125rem 1.25rem 0.3125rem 1.25rem;
+		width: 15.1875rem;
+		height: 2.8125rem;
+		font-size: 1rem;
 		font-weight: 500;
 		font-family: 'Roboto', sans-serif;
 		box-shadow: var(--shadow-style);
-		margin-bottom: 7px;
+		margin-bottom: 0.4375rem;
 	}
 	ul {
-		background-color: var(--color-white);
+		background-color: var(--color-white-background);
 		text-align: center;
 		border-radius: var(--md-raduis);
-		border: 1px solid var(--color-light-gray);
+		border: 0.0625rem solid var(--color-light-gray);
 		overflow: hidden;
 		box-shadow: var(--shadow-style);
 		li {
-			width: 243px;
-			font-size: 14px;
+			width: 15.1875rem;
+			font-size: 0.875rem;
 			font-weight: 500;
 
-			padding-top: 5px;
-			padding-bottom: 5px;
+			padding-top: 0.3125rem;
+			padding-bottom: 0.3125rem;
 			font-family: 'Roboto', sans-serif;
-			border-bottom: 1px solid var(--color-bottom-list);
+			border-bottom: 0.0625rem solid var(--color-bottom-list);
 			&:last-of-type {
 				border-bottom: none;
 			}
@@ -58,20 +68,20 @@
 	}
 }
 .polygonDropDown {
-	margin-top: 2px;
+	margin-top: 0.125rem;
 	width: 0;
 	height: 0;
-	border-left: 5px solid transparent;
-	border-right: 5px solid transparent;
-	border-top: 9px solid #99a8b2;
+	border-left: 0.3125rem solid transparent;
+	border-right: 0.3125rem solid transparent;
+	border-top: 0.5625rem solid #99a8b2;
 }
 .polygonDropDownRotate {
-	margin-top: 2px;
+	margin-top: 0.125rem;
 	width: 0;
 	height: 0;
-	border-left: 5px solid transparent;
-	border-right: 5px solid transparent;
-	border-bottom: 9px solid #99a8b2;
+	border-left: 0.3125rem solid transparent;
+	border-right: 0.3125rem solid transparent;
+	border-bottom: 0.5625rem solid #99a8b2;
 	border-top: none;
 }
 

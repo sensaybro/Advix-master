@@ -20,8 +20,10 @@ html {
 html,
 body,
 #root {
+	display: flex;
+	flex-wrap: wrap;
+
 	font-size: calc(6px + (20 - 6) * ((100vw - 600px) / (1920 - 600)));
-	width: 100% !important;
 
 	@media (min-width: 1920px) {
 		font-size: 20px;
@@ -104,6 +106,7 @@ button,
 input,
 textarea {
 	color: var(--color-light-gray);
+	background: none;
 }
 i {
 	font-style: italic;

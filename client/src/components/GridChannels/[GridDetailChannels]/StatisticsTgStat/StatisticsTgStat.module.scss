@@ -1,0 +1,10 @@
+.wrapper {
+	box-shadow: var(--shadow);
+	border-radius: var(--md-raduis);
+	img {
+		border-radius: var(--md-raduis);
+		width: 31.9375rem;
+		height: auto;
+		display: block;
+	}
+}

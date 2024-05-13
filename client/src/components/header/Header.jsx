@@ -32,7 +32,7 @@ const Header = () => {
 	return (
 		<header className={style.wrapperHeader}>
 			<div>
-				<img width={62} height={62} src={logo} alt='advix' />
+				<img src={logo} alt='advix' />
 			</div>
 			<div className={style.catalogHeader}>
 				<button
@@ -60,7 +60,7 @@ const Header = () => {
 				<SwitchButton />
 				<button className={style.LoginBtn}>
 					<a target='_blank' href='https://t.me/AdvixOAuth_bot'>
-						<img width={19} height={16} src={telegram} alt='telegram' />
+						<img src={telegram} alt='telegram' />
 						<span>Войти</span>
 					</a>
 				</button>

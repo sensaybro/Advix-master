@@ -19,7 +19,7 @@ class Chanel(Base):
     __tablename__ = 'Channel'
 
     id = Column(Integer, primary_key=True, autoincrement=True)
-    User_id = Column(Integer)
+    User_id = Column(BigInteger)
     Category = Column(String, default='')
     language = Column(String, default='')
     name_channel = Column(String, default='')
@@ -46,7 +46,7 @@ class User(Base):
     __tablename__ = "User"
 
     User_id = Column(Integer, primary_key=True, autoincrement=True)
-    id_telegram = Column(Integer, unique=True)
+    id_telegram = Column(BigInteger, unique=True)
     link_image = Column(String)
     user_name = Column(String, unique=True)
     is_premium = Column(Boolean)

@@ -1,5 +1,5 @@
 .wrapperQuotes {
-	background-color: #f1f8fd;
+	background-color: var(--color-quotes-two);
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: flex-start;
@@ -7,19 +7,19 @@
 	text-align: center;
 	border-bottom-right-radius: var(--md-raduis);
 	border-top-right-radius: var(--md-raduis);
-	border-left: 2px solid var(--color-light-blue);
-	height: 190px;
-	width: 511px;
+	border-left: 0.125rem solid var(--color-light-blue);
+	height: 11.875rem;
+	width: 31.9375rem;
 	overflow: scroll;
 }
 .quotesStyle {
 	display: block;
-	margin-left: 10px;
-	width: 250px;
-	line-height: 1rem;
+	margin-left: 0.625rem;
+	width: 15.625rem;
+	line-height: 1.25rem;
 	text-align: left;
 	quotes: initial;
-	font-size: 18px;
+	font-size: 1.125rem;
 	font-weight: 500;
 	font-family: 'Roboto', sans-serif;
 }
