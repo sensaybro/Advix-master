@@ -31,7 +31,7 @@ model Channel {
   Category               String
   language               String
   name_channel           String
-  id_telegram            BigInt   @unique
+  id_telegram            String   @unique
   desc_channel           String
   link_Cannel            String
   link_Type_Boolean      Boolean
@@ -58,7 +58,7 @@ model Channel {
 
 model User {
   User_id     Int       @id @default(autoincrement())
-  id_telegram BigInt    @unique
+  id_telegram String    @unique
   is_premium  Boolean
   link_image  String?
   user_name   String    @unique

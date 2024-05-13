@@ -1,5 +1,13 @@
 .wrapperMain {
+	//height: 1;
+
+	width: 100%;
 	display: flex;
-	justify-content: center;
+	flex-wrap: wrap;
+}
+.wrapperRoot {
+	display: block;
+
+	display: flex;
 	flex-direction: column;
 }

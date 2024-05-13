@@ -20,6 +20,9 @@ html {
 html,
 body,
 #root {
+	display: flex;
+	flex-wrap: wrap;
+	height: 100%;
 	font-size: calc(6px + (20 - 6) * ((100vw - 600px) / (1920 - 600)));
 	width: 100% !important;
 

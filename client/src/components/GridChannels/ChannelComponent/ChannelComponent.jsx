@@ -91,7 +91,7 @@ const ChannelComponent = ({ element }) => {
 						</Link>
 
 						<div>
-							<h2>
+							<h2 className={style.wrapperNameAndPosition}>
 								<Link to={`/channels/${element.id}`}>
 									{element.name_channel}
 								</Link>

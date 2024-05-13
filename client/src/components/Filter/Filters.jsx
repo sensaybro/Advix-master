@@ -58,7 +58,7 @@ function Filter() {
 		} else if (key === 'views') {
 			values = data.map(item => item.count_views)
 		} else if (key === 'err') {
-			values = data.map(item => ConvertIntToRUPercent(item.ERR))
+			values = data.map(item => item.ERR * 100)
 		}
 		const min = Math.min(...values)
 		const max = Math.max(...values)
