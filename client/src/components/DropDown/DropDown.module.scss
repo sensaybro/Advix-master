@@ -3,11 +3,19 @@
 	align-items: flex-start;
 	.blockArrowImg {
 		display: block;
+		position: absolute;
+		width: 1.5rem;
+		height: 1.5rem;
+		left: 72%;
 		margin-top: 0.625rem;
 		margin-right: 0.625rem;
 	}
 	.rotatedArrowImg {
 		transform: rotate(180deg);
+		position: absolute;
+		width: 1.5rem;
+		height: 1.5rem;
+		left: 72%;
 		display: block;
 		margin-top: 0.625rem;
 		margin-right: 0.625rem;
@@ -17,6 +25,8 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	position: absolute;
+	left: 75%;
 	cursor: pointer;
 	button {
 		background: none;

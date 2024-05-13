@@ -53,8 +53,8 @@ const DropDown = ({ default_arg, args }) => {
 							? `${style.blockArrowImg}`
 							: `${style.rotatedArrowImg}`
 					}
-					width={24}
-					height={24}
+					// width={24}
+					// height={24}
 					src={dropdownArrow}
 					alt='arrowdropdown'
 				/>

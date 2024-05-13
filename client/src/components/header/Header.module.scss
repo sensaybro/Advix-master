@@ -33,6 +33,11 @@
 	padding-right: 7.1875rem;
 	box-shadow: var(--shadow-style);
 
+	> div > img {
+		width: 3.875rem;
+		height: 3.875rem;
+	}
+
 	div {
 		display: flex;
 		align-content: center;
@@ -52,6 +57,8 @@
 	height: 2.625rem;
 	border-radius: 1.25rem;
 	img {
+		width: 1.1875rem;
+		height: 1rem;
 		margin-right: 0.3125rem;
 	}
 	a {
