@@ -1,11 +1,11 @@
 .filter {
 	position: absolute;
-	top: 60px;
-	width: 310px;
-	height: 835px;
+	top: 3.75rem;
+	width: 19.375rem;
+	height: 52.1875rem;
 
-	padding: 20px;
-	border-radius: 15px;
+	padding: 1.25rem;
+	border-radius: 0.9375rem;
 
 	box-shadow: var(--shadow);
 
@@ -14,31 +14,31 @@
 	flex-direction: row;
 
 	font-family: 'Roboto', sans-serif;
-	font-size: 16px;
+	font-size: 1rem;
 	color: var(--color-light-gray);
 }
 
 .filter_ico {
-	width: 12px;
-	height: 12px;
+	width: 0.75rem;
+	height: 0.75rem;
 }
 
 .filter_block {
 	width: 90%;
-	height: 150px;
-	border-bottom: 1px solid var(--color-gray);
+	height: 9.375rem;
+	border-bottom: 0.0625rem solid var(--color-gray);
 
-	margin-bottom: 20px;
+	margin-bottom: 1.25rem;
 }
 
 .filter_block:nth-of-type(3) {
 	height: auto;
-	padding-bottom: 10px;
+	padding-bottom: 0.625rem;
 }
 
 .filter_block:nth-of-type(4) {
 	width: auto;
-	padding-bottom: 8px;
+	padding-bottom: 0.5rem;
 }
 
 .filter_item {
@@ -47,10 +47,10 @@
 	align-items: center;
 	flex-wrap: wrap;
 
-	margin-top: 3px;
-	margin-bottom: 15px;
+	margin-top: 0.1875rem;
+	margin-bottom: 0.9375rem;
 	span {
-		margin-bottom: 10px;
+		margin-bottom: 0.625rem;
 		display: block;
 	}
 }
@@ -61,15 +61,15 @@ button {
 }
 
 .filt_btn {
-	width: 204px;
-	height: 28px;
+	width: 12.75rem;
+	height: 1.75rem;
 
 	background: none;
 
-	border-radius: 7px;
-	border: 1px solid var(--color-light-gray);
+	border-radius: 0.4375rem;
+	border: 0.0625rem solid var(--color-light-gray);
 
-	font-size: 12px;
+	font-size: 0.75rem;
 	font-family: inherit;
 	color: inherit;
 
@@ -82,16 +82,16 @@ button {
 .polygone {
 	width: 0;
 	height: 0;
-	border-left: 4px solid transparent;
-	border-right: 4px solid transparent;
-	border-top: 6px solid var(--color-light-gray);
+	border-left: 0.25rem solid transparent;
+	border-right: 0.25rem solid transparent;
+	border-top: 0.375rem solid var(--color-light-gray);
 
 	margin: 0 5% 0 25%;
 }
 
 .polygone::active {
-	border-top: 0px;
-	border-bottom: 6px solid var(--color-light-gray);
+	border-top: 0rem;
+	border-bottom: 0.375rem solid var(--color-light-gray);
 }
 
 .reload_btn {
@@ -100,7 +100,7 @@ button {
 	display: flex;
 	align-items: center;
 
-	margin-left: 5px;
+	margin-left: 0.3125rem;
 }
 
 .reload_btn:active img {
@@ -114,31 +114,31 @@ button {
 }
 
 span {
-	margin-bottom: 9px;
+	margin-bottom: 0.5625rem;
 }
 
 .label_wrapper {
 	display: flex;
 	align-items: center;
 
-	border-radius: 7px;
-	border: 1px solid var(--color-light-gray);
+	border-radius: 0.4375rem;
+	border: 0.0625rem solid var(--color-light-gray);
 
-	width: 96px;
-	height: 28px;
+	width: 6rem;
+	height: 1.75rem;
 }
 
 .label_wrapper:first-child {
-	margin-right: 12px;
+	margin-right: 0.75rem;
 }
 
 .label_wrapper span {
-	font-size: 10px;
-	margin: 4px;
+	font-size: 0.625rem;
+	margin: 0.25rem;
 }
 
 .label_wrapper input {
-	font-size: 12px;
+	font-size: 0.75rem;
 }
 
 input[type='number'] {
@@ -178,7 +178,7 @@ input[type='number']::-webkit-outer-spin-button {
 	margin-left: 5%;
 
 	img {
-		margin-left: 5px;
+		margin-left: 0.3125rem;
 	}
 }
 
@@ -187,15 +187,15 @@ input[type='number']::-webkit-outer-spin-button {
 	-moz-appearance: none;
 	appearance: none;
 
-	border-radius: 3px;
-	width: 14px;
-	height: 15px;
+	border-radius: 0.1875rem;
+	width: 0.875rem;
+	height: 0.9375rem;
 
-	border: 1px solid var(--color-light-gray);
+	border: 0.0625rem solid var(--color-light-gray);
 	transition: 0.2s all linear;
 	outline: none;
 
-	margin: 0px;
+	margin: 0rem;
 	cursor: pointer;
 }
 
@@ -209,10 +209,10 @@ input[type='number']::-webkit-outer-spin-button {
 
 .round {
 	border-radius: 50%;
-	height: 4px;
-	width: 4px;
+	height: 0.25rem;
+	width: 0.25rem;
 	background: var(--color-light-green);
-	margin-left: 5px;
+	margin-left: 0.3125rem;
 }
 
 .btn_search {
@@ -225,10 +225,10 @@ input[type='number']::-webkit-outer-spin-button {
 	font-size: inherit;
 
 	padding: 0;
-	margin-bottom: 10px;
+	margin-bottom: 0.625rem;
 
 	img {
-		margin-right: 8px;
+		margin-right: 0.5rem;
 	}
 
 	display: flex;

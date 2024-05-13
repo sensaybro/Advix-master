@@ -6,7 +6,7 @@
 	justify-content: center;
 	width: 100%;
 	.wrapperDiscPrice {
-		font-size: 16px;
+		font-size: 1rem;
 		font-weight: 600;
 		text-decoration: line-through;
 		color: var(--color-light-gray);
@@ -18,7 +18,7 @@
 	width: 100%;
 	position: relative;
 	span {
-		font-size: 64px;
+		font-size: 4rem;
 		font-weight: 600;
 		font-family: 'Roboto', sans-serif;
 		color: var(--color-price-default);
@@ -34,26 +34,26 @@
 		flex-direction: row;
 		justify-content: center;
 		//background-color: var(--color-price-type);
-		height: 25px;
+		height: 1.5625rem;
 
 		border-radius: var(--l-raduis);
-		padding-right: 3px;
-		padding-left: 3px;
+		padding-right: 0.1875rem;
+		padding-left: 0.1875rem;
 
 		.clickedBtn {
 			display: flex;
 			align-items: center;
 
-			height: 20px;
+			height: 1.25rem;
 			background: none;
-			border: 1px solid #d9d9d9;
-			border-radius: 6px;
+			border: 0.0625rem solid #d9d9d9;
+			border-radius: 0.375rem;
 
-			padding: 4px;
+			padding: 0.25rem;
 
-			//margin-right: 3px;
+			//margin-right: .1875rem;
 			span {
-				font-size: 10px;
+				font-size: 0.625rem;
 				color: var(--color-light-gray);
 				font-weight: 500;
 			}
@@ -65,7 +65,7 @@
 	justify-content: center;
 	width: 100%;
 	span {
-		font-size: 16px;
+		font-size: 1rem;
 		font-weight: 600;
 		color: var(--color-dark-yellow);
 	}
@@ -75,17 +75,17 @@
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
-	margin-left: 10px;
-	width: 136px;
-	height: 15px;
+	margin-left: 0.625rem;
+	width: 8.5rem;
+	height: 0.9375rem;
 	background-color: var(--color-red);
-	font-size: 12px;
+	font-size: 0.75rem;
 	font-weight: 600;
-	border-radius: 10px;
-	padding-top: 1px;
-	padding-bottom: 1px;
-	padding-left: 2px;
-	padding-right: 2px;
+	border-radius: 0.625rem;
+	padding-top: 0.0625rem;
+	padding-bottom: 0.0625rem;
+	padding-left: 0.125rem;
+	padding-right: 0.125rem;
 
 	color: var(--color-white);
 }
@@ -93,12 +93,12 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;
-	width: 387px;
-	height: 275px;
-	border: 3px solid var(--color-dark-yellow);
+	width: 24.1875rem;
+	height: 17.1875rem;
+	border: 0.1875rem solid var(--color-dark-yellow);
 	border-radius: var(--md-raduis);
 	box-shadow: var(--shadow-yellow);
-	margin-bottom: 35px;
+	margin-bottom: 2.1875rem;
 }
 .wrapperBtnHot {
 	display: flex;
@@ -108,20 +108,20 @@
 }
 .BtnBuy {
 	background-color: var(--color-dark-yellow);
-	width: 243px;
-	height: 45px;
+	width: 15.1875rem;
+	height: 2.8125rem;
 	border-radius: var(--md-raduis);
 
 	span {
 		color: var(--color-white);
-		font-size: 18px;
+		font-size: 1.125rem;
 		font-weight: 600;
 	}
 }
 .TimeAndDiscount {
-	height: 15px;
+	height: 0.9375rem;
 	display: flex;
-	font-size: 12px;
+	font-size: 0.75rem;
 	font-weight: 600;
 
 	justify-content: space-between;
@@ -129,15 +129,15 @@
 	align-items: center;
 	color: var(--color-white);
 	.wrapperFormulaDis {
-		width: 44px;
-		height: 15px;
-		border-radius: 10px;
-		padding-top: 1px;
-		padding-bottom: 1px;
-		padding-left: 2px;
-		padding-right: 2px;
+		width: 2.75rem;
+		height: 0.9375rem;
+		border-radius: 0.625rem;
+		padding-top: 0.0625rem;
+		padding-bottom: 0.0625rem;
+		padding-left: 0.125rem;
+		padding-right: 0.125rem;
 		background-color: var(--color-red);
-		font-size: 12px;
+		font-size: 0.75rem;
 		font-weight: 600;
 
 		color: var(--color-white);

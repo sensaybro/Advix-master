@@ -3,10 +3,10 @@
 	justify-content: space-between;
 	align-items: center;
 	text-align: center;
-	height: 82px;
+	height: 5.125rem;
 	align-content: center;
-	padding-left: 115px;
-	padding-right: 115px;
+	padding-left: 7.1875rem;
+	padding-right: 7.1875rem;
 	box-shadow: var(--shadow-style);
 	background-color: var(--color-background-black);
 	div {
@@ -26,11 +26,11 @@
 	justify-content: space-between;
 	align-items: center;
 	text-align: center;
-	height: 82px;
+	height: 5.125rem;
 	width: 100%;
 	align-content: center;
-	padding-left: 115px;
-	padding-right: 115px;
+	padding-left: 7.1875rem;
+	padding-right: 7.1875rem;
 	box-shadow: var(--shadow-style);
 
 	div {
@@ -48,11 +48,11 @@
 	display: flex;
 	background-color: var(--color-dark-blue);
 	color: var(--color-white);
-	width: 121px;
-	height: 42px;
-	border-radius: 20px;
+	width: 7.5625rem;
+	height: 2.625rem;
+	border-radius: 1.25rem;
 	img {
-		margin-right: 5px;
+		margin-right: 0.3125rem;
 	}
 	a {
 		display: flex;
@@ -71,33 +71,33 @@
 	left: 50%;
 
 	button {
-		width: 121px;
-		height: 42px;
+		width: 7.5625rem;
+		height: 2.625rem;
 		background-color: #d9d9d9;
-		border: solid 1px;
+		border: solid 0.0625rem;
 		border-color: var(--color-light-gray);
 		color: #a1aeb7;
 		&:first-of-type {
-			border-radius: 15px 0px 0px 15px;
+			border-radius: 0.9375rem 0rem 0rem 0.9375rem;
 
-			border-right: solid 1px rgba(153, 168, 178, 0.18);
+			border-right: solid 0.0625rem rgba(153, 168, 178, 0.18);
 		}
 
 		&:last-of-type {
-			border-radius: 0px 15px 15px 0px;
+			border-radius: 0rem 0.9375rem 0.9375rem 0rem;
 
 			border-left: none;
 		}
 		span {
 			color: var(--color-light-gray);
 			font-family: 'Roboto', sans-serif;
-			font-size: 11px;
+			font-size: 0.6875rem;
 			font-weight: 600;
 		}
 	}
 	.clickedHotBtn {
-		width: 121px;
-		height: 42px;
+		width: 7.5625rem;
+		height: 2.625rem;
 		background-color: var(--color-dark-yellow);
 		border-color: var(--color-dark-yellow);
 		span {
@@ -105,16 +105,16 @@
 		}
 	}
 	.nonClickedHotBtn {
-		width: 121px;
-		height: 42px;
+		width: 7.5625rem;
+		height: 2.625rem;
 		background-color: #d9d9d9;
 		span {
 			color: #a1aeb7;
 		}
 	}
 	.clickedCatalogBtn {
-		width: 121px;
-		height: 42px;
+		width: 7.5625rem;
+		height: 2.625rem;
 		background-color: var(--color-dark-blue);
 		border-color: var(--color-dark-blue);
 		span {
@@ -122,8 +122,8 @@
 		}
 	}
 	.nonClickedCatalogBtn {
-		width: 121px;
-		height: 42px;
+		width: 7.5625rem;
+		height: 2.625rem;
 		background-color: #d9d9d9;
 		span {
 			color: #a1aeb7;

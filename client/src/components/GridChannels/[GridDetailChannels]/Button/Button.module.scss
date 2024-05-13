@@ -2,12 +2,12 @@
 	display: flex;
 	background: none;
 	color: var(--color-light-gray);
-	border: 1px solid var(--color-light-gray);
+	border: 0.0625rem solid var(--color-light-gray);
 	border-radius: var(--md-raduis);
-	width: 243px;
-	height: 44px;
+	width: 15.1875rem;
+	height: 2.75rem;
 	justify-content: center;
 	align-items: center;
-	font-size: 16px;
+	font-size: 1rem;
 	font-weight: 500;
 }
