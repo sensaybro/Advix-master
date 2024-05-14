@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux'
 import DropDown from '../DropDown/DropDown'
 import Search from '../InputSearch/Search'
+import PaginationButton from '../PaginationButton/PaginationButton.jsx'
 import ChannelComponent from './ChannelComponent/ChannelComponent'
 import { data } from './ChannelComponent/FakeData.js'
 import ChannelComponentHot from './ChannelComponentHot/ChannelComponentHot'
@@ -40,6 +41,7 @@ const GridChannels = () => {
 					)
 				})}
 			</div>
+			<PaginationButton />
 		</div>
 	)
 }
