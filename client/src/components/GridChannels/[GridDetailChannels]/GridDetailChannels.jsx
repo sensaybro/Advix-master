@@ -77,6 +77,10 @@ const GridDetailChannels = () => {
 								<Description content={elementDetail.desc_channel} />
 								<hr className={style.line} />
 							</div>
+							<div className={style.wrapperStatisticsTitle}>
+								<span>Статистика</span>
+							</div>
+
 							<StatisticsTgStat name_channel={elementDetail.link_Cannel} />
 						</div>
 					</div>
