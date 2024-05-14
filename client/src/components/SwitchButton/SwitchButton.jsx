@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import Switch from 'react-switch'
 import moon from '../../assets/moon-svgrepo-com.svg'
 import sun from '../../assets/sun.svg'
-import { themeReducer } from '../../redux/reducers/ThemeSlice'
+import { themeReducer } from '../../redux/reducers/ThemeSlice.js'
 export const SwitchButton = () => {
 	const [checked, setChecked] = useState(true)
 	const dispatch = useDispatch()

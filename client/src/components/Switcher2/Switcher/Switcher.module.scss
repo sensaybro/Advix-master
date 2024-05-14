@@ -1,0 +1,49 @@
+.switchWrapper {
+	display: flex;
+	flex-direction: row;
+	align-content: center;
+	justify-content: end;
+
+	border-radius: 2.8125rem;
+	width: 2.875rem;
+	height: 1.5rem;
+	cursor: pointer;
+	background-color: var(--color-price-type);
+	padding: 0.1875rem;
+
+	input {
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+	}
+}
+
+.round {
+	background-image: url('../../../assets/icons/switcher/sun.svg');
+	background-repeat: no-repeat;
+	background-size: 0.85rem 0.85rem;
+	background-color: var(--color-switch);
+	background-repeat: no-repeat;
+	background-position: center;
+
+	border-radius: 50%;
+	width: 1.125rem;
+	cursor: pointer;
+	transition: 0.5s ease-in-out;
+	img {
+		width: 0.75rem;
+		height: 0.75rem;
+	}
+}
+
+.round:checked {
+	background-image: url('../../../assets/icons/switcher/moon.svg');
+	background-color: var(--color-white);
+	background-repeat: no-repeat;
+	background-size: 0.85rem 0.85rem;
+	translate: -125%;
+	.switchWrapper {
+		background-color: var(--color-switch);
+		justify-content: start;
+	}
+}
