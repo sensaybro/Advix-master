@@ -33,7 +33,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/home/amex/Рабочий стол/fff/Advix-master/server/chat_parser/venv"
+set -gx VIRTUAL_ENV "/run/media/amexdev/tom/advix3/Advix-master/server/chat_parser/venv"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH

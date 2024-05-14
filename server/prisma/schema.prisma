@@ -11,7 +11,7 @@ datasource db {
 model Connect {
   id          Int    @id @default(autoincrement())
   token       String @unique
-  telegram_id Int
+  telegram_id BigInt
 }
 
 model PriceObjects {
@@ -31,7 +31,7 @@ model Channel {
   Category               String
   language               String
   name_channel           String
-  id_telegram            String   @unique
+  id_telegram            BigInt   @unique
   desc_channel           String
   link_Cannel            String
   link_Type_Boolean      Boolean
@@ -58,7 +58,7 @@ model Channel {
 
 model User {
   User_id     Int       @id @default(autoincrement())
-  id_telegram String    @unique
+  id_telegram BigInt    @unique
   is_premium  Boolean
   link_image  String?
   user_name   String    @unique
