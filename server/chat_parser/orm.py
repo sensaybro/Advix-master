@@ -54,9 +54,9 @@ class User(Base):
 class Secrets(Base):
     __tablename__ = "Connect"
 
-    id = Column(Integer, primary_key=True, autoincrement=True)
+    id = Column(BigInteger, primary_key=True, autoincrement=True)
     token = Column(String, unique=True)
-    telegram_id = Column(Integer)
+    telegram_id = Column(String)
     
 
 """

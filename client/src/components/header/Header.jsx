@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import logo from '../../assets/advix_blue.svg'
 import telegram from '../../assets/telegram-svgrepo-com.svg'
 import { setCatalog } from '../../redux/reducers/SelectedCatalogSlice'
-import { SwitchButton } from '../SwitchButton/SwitchButton'
+import { SwitchButton } from '../Switcher2/Switcher/Switcher'
 import style from './Header.module.scss'
 const Header = () => {
 	const [clickedHotBtn, setClickedHotBtn] = useState(false)

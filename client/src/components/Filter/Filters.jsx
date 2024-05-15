@@ -4,7 +4,7 @@ import icoVerify from '../../assets/icons/check_verify.svg'
 import icoHeartStroke from '../../assets/icons/favorite.svg'
 import icoHeart from '../../assets/icons/favorite_heart.svg'
 import icoFilter from '../../assets/icons/filter.svg'
-import icoLock from '../../assets/icons/lock_open.svg'
+import icoLock from '../../assets/icons/lock_open1.svg'
 import icoReload from '../../assets/icons/reload.svg'
 import icoSave from '../../assets/icons/save.svg'
 import { data } from '../GridChannels/ChannelComponent/FakeData.js'
@@ -159,7 +159,11 @@ function Filter() {
 								className={style.reload_btn}
 								onClick={handleReload('price')}
 							>
-								<img src={icoReload} alt='' />
+								<img
+									src={icoReload}
+									alt='iconReload'
+									className={style.imgIcon}
+								/>
 							</button>
 						</div>
 					</div>
@@ -193,7 +197,11 @@ function Filter() {
 								className={style.reload_btn}
 								onClick={handleReload('cpm')}
 							>
-								<img src={icoReload} alt='' />
+								<img
+									src={icoReload}
+									alt='iconReload'
+									className={style.imgIcon}
+								/>
 							</button>
 						</div>
 					</div>
@@ -230,7 +238,11 @@ function Filter() {
 								className={style.reload_btn}
 								onClick={handleReload('subscribers')}
 							>
-								<img src={icoReload} alt='' />
+								<img
+									src={icoReload}
+									alt='iconReload'
+									className={style.imgIcon}
+								/>
 							</button>
 						</div>
 					</div>
@@ -264,7 +276,11 @@ function Filter() {
 								className={style.reload_btn}
 								onClick={handleReload('views')}
 							>
-								<img src={icoReload} alt='' />
+								<img
+									src={icoReload}
+									alt='iconReload'
+									className={style.imgIcon}
+								/>
 							</button>
 						</div>
 					</div>
@@ -298,7 +314,11 @@ function Filter() {
 								className={style.reload_btn}
 								onClick={handleReload('err')}
 							>
-								<img src={icoReload} alt='' />
+								<img
+									src={icoReload}
+									alt='iconReload'
+									className={style.imgIcon}
+								/>
 							</button>
 						</div>
 					</div>
@@ -315,7 +335,7 @@ function Filter() {
 						/>
 						<label for='like' className={style.label_radio}>
 							В избранном
-							<img src={icoHeart} alt='' />
+							<img src={icoHeart} alt='iconHeart' className={style.imgIcon} />
 						</label>
 					</div>
 
@@ -341,7 +361,7 @@ function Filter() {
 						/>
 						<label for='open' className={style.label_radio}>
 							Открытый канал
-							<img src={icoLock} alt='' />
+							<img src={icoLock} alt='iconLock' className={style.imgLockIcon} />
 						</label>
 					</div>
 
@@ -354,7 +374,11 @@ function Filter() {
 						/>
 						<label for='verify' className={style.label_radio}>
 							Верифицированный канал
-							<img src={icoVerify} alt='' />
+							<img
+								src={icoVerify}
+								alt='iconVerify'
+								className={style.imgVerifyIcon}
+							/>
 						</label>
 					</div>
 
@@ -374,12 +398,16 @@ function Filter() {
 				{/*=========== Block 5 ===========*/}
 				<div className={style.wrapper_search}>
 					<button className={style.btn_search} onClick={handleSaveSearch}>
-						<img src={icoHeartStroke} alt='' />
+						<img
+							src={icoHeartStroke}
+							alt='iconHeartStroke'
+							className={style.imgLikedIcon}
+						/>
 						Сохранить поиск
 					</button>
 
 					<button className={style.btn_search} onClick={handleRestoreSearch}>
-						<img src={icoSave} alt='' />
+						<img src={icoSave} alt='iconSave' className={style.imgSaveIcon} />
 						Восстановить поиск
 					</button>
 				</div>

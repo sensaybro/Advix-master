@@ -19,13 +19,7 @@ const Statistics = ({ data }) => {
 				<div className={style.pairStatistics}>
 					<div className={style.wrapperOneStatistics}>
 						<div>
-							<img
-								className={style.imageWrapper}
-								width={15}
-								height={15}
-								src={userIcon}
-								alt=''
-							/>
+							<img className={style.imageWrapper} src={userIcon} alt='' />
 						</div>
 						<span>
 							<strong>
@@ -35,13 +29,7 @@ const Statistics = ({ data }) => {
 						</span>
 					</div>
 					<div>
-						<img
-							className={style.imageWrapper}
-							width={15}
-							height={15}
-							src={eye}
-							alt=''
-						/>
+						<img className={style.imageWrapper} src={eye} alt='' />
 						<span>
 							<strong>{ConvertIntToRUNumberFormat(data.count_views)}</strong>{' '}
 							просмотров на пост
@@ -50,25 +38,13 @@ const Statistics = ({ data }) => {
 				</div>
 				<div className={style.pairStatistics}>
 					<div>
-						<img
-							className={style.imageWrapper}
-							width={15}
-							height={15}
-							src={priceCMP}
-							alt=''
-						/>
+						<img className={style.imageWrapper} src={priceCMP} alt='' />
 						<span>
 							<strong>{ConvertIntToRUNumberFormat(data.CPM)}</strong> CPM
 						</span>
 					</div>
 					<div>
-						<img
-							className={style.imageWrapper}
-							width={15}
-							height={15}
-							src={price}
-							alt=''
-						/>
+						<img className={style.imageWrapper} src={price} alt='' />
 						<span>
 							<strong>{ConvertIntToRUPercent(data.ERR)}</strong> ERR
 						</span>

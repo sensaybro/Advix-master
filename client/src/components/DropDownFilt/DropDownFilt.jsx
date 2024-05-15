@@ -84,7 +84,7 @@ const DropDown = ({ default_arg, args }) => {
 				)}
 			</div>
 			<button className={style.reload_btn} onClick={handleReload}>
-				<img src={icoReload} alt='' />
+				<img src={icoReload} alt='iconReload' className={style.imgIcon} />
 			</button>
 		</div>
 	)

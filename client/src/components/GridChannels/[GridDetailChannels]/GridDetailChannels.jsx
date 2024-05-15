@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom'
 import eye from '../../../assets/eye.svg'
 import favorite from '../../../assets/favorite.svg'
+import iconTgStats from '../../../assets/icon2/logo.png'
 import { data } from '../ChannelComponent/FakeData'
 import Button from './Button/Button'
 import Description from './Desciption/Description'
@@ -77,6 +78,20 @@ const GridDetailChannels = () => {
 								<Description content={elementDetail.desc_channel} />
 								<hr className={style.line} />
 							</div>
+							<div className={style.wrapperStatisticsTitle}>
+								<div className={style.wrapperStatsTitle}>
+									<span>Статистика</span>
+								</div>
+								<button className={style.wrapperBtnTg}>
+									<a>TGSTAT.RU</a>
+									<img
+										src={iconTgStats}
+										className={style.TgStatsIcon}
+										alt='tgstats'
+									/>
+								</button>
+							</div>
+
 							<StatisticsTgStat name_channel={elementDetail.link_Cannel} />
 						</div>
 					</div>
@@ -87,13 +102,13 @@ const GridDetailChannels = () => {
 									{ConvertIntToENNumberFormat(elementDetail.count_views)}
 								</span>
 
-								<img width={28} height={22} src={eye} alt='' />
+								<img className={style.IconSize} src={eye} alt='eye' />
 							</div>
 							<div className={style.wrapperCountViews}>
 								<span>
 									{ConvertIntToRUNumberFormat(elementDetail.selected)}
 								</span>
-								<img width={28} height={22} src={favorite} alt='' />
+								<img className={style.IconSize} src={favorite} alt='favorite' />
 							</div>
 						</div>
 						<PriceDefaultBlock data={elementDetail} />

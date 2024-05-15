@@ -11,7 +11,7 @@ datasource db {
 model Connect {
   id          Int    @id @default(autoincrement())
   token       String @unique
-  telegram_id Int
+  telegram_id BigInt
 }
 
 model PriceObjects {
@@ -26,12 +26,12 @@ model PriceObjects {
 }
 
 model Channel {
-  id                     Int      @id @default(autoincrement())
+  id                     Int            @id @default(autoincrement())
   User_id                Int
   Category               String
   language               String
   name_channel           String
-  id_telegram            String   @unique
+  id_telegram            BigInt         @unique
   desc_channel           String
   link_Cannel            String
   link_Type_Boolean      Boolean
@@ -51,14 +51,14 @@ model Channel {
   hot_price              Int
   CPM                    Int
   hot_state              Boolean
-
-  user         User           @relation(fields: [User_id], references: [User_id])
-  priceObjects PriceObjects[]
+  is_published           Boolean        @default(false)
+  user                   User           @relation(fields: [User_id], references: [User_id])
+  priceObjects           PriceObjects[]
 }
 
 model User {
   User_id     Int       @id @default(autoincrement())
-  id_telegram String    @unique
+  id_telegram BigInt    @unique
   is_premium  Boolean
   link_image  String?
   user_name   String    @unique
