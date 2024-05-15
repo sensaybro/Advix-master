@@ -45,6 +45,7 @@
 	margin-bottom: 2rem;
 	border-bottom-left-radius: var(--md-raduis);
 	border-bottom-right-radius: var(--md-raduis);
+	padding-bottom: 6.25rem;
 	//align-items: center;
 	/* .WrapperStatistics {
 		top: 100%;
@@ -179,11 +180,55 @@
 }
 
 .wrapperStatisticsTitle {
+	display: flex;
+	justify-content: center;
+
+	> .wrapperStatsTitle {
+		height: 20px;
+		> span {
+			height: 10px;
+			vertical-align: text-top;
+			font-size: 1.25rem;
+			font-weight: 700;
+			color: var(--color-light-gray);
+		}
+	}
+
 	margin-top: 1rem;
 	margin-bottom: 0.6875rem;
-	span {
-		font-size: 1.25rem;
-		font-weight: 600;
-		color: var(--color-light-gray);
+	.wrapperBtnTg {
+		display: block;
+		border: var(--border-tgstat);
+		border-radius: var(--l-raduis);
+		width: 5.125rem;
+		height: 1.25rem;
+		display: flex;
+		justify-content: space-evenly;
+		align-items: center;
+		align-content: center;
+		flex-direction: row-reverse;
+		a {
+			font-weight: 600;
+			color: var(--color-light-blue);
+			font-size: 0.625rem;
+		}
+		.TgStatsIcon {
+			display: block;
+			width: 0.5625rem;
+			height: 0.5625rem;
+		}
 	}
 }
+
+.IconSize {
+	width: 1.75rem;
+	height: 1.375rem;
+}
+
+/* .wrapperBtnTg {
+	
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	flex-direction: row-reverse;
+} */
