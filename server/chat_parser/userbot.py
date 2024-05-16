@@ -46,7 +46,7 @@ async def handle_message(app: Client, message: types.Message):
         ))
         session.commit()
 
-        await message.reply(f'Перейдите на <a href="{url}">сайт</a> для авторизации!')
+        await message.reply(f'Перейдите на {url}  для авторизации!')
     
 @app.on_raw_update()
 async def handle_chat_member(app: Client, event, data: dict, details: dict):

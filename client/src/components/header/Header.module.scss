@@ -57,15 +57,17 @@
 	height: 2.625rem;
 	border-radius: 1.25rem;
 	img {
-		width: 1.1875rem;
-		height: 1rem;
+		width: 1.5rem;
+
 		margin-right: 0.3125rem;
+		border-radius: 50%;
 	}
 	a {
 		display: flex;
 		flex-direction: row;
 		align-items: center;
 		span {
+			font-size: 0.875rem;
 			font-family: 'Roboto', sans-serif;
 			font-weight: 600;
 		}

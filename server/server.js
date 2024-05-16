@@ -48,6 +48,7 @@ app.post('/upload', upload.single('image'), async (req, res) => {
 })
 
 app.use('/auth', router)
+app.use('/chat_parser/uploads', express.static('chat_parser/uploads'))
 async function start() {
 	try {
 		// Create a new PrismaClient instance

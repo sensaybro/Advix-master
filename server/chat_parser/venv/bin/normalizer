@@ -1,6 +1,4 @@
-#!/bin/sh
-'''exec' "/home/amex/Рабочий стол/advix/Advix-master/server/chat_parser/venv/bin/python3" "$0" "$@"
-' '''
+#!/run/media/amexdev/tom/advix3/Advix-master/server/chat_parser/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys
