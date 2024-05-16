@@ -1,5 +1,5 @@
 import { PrismaClient } from '@prisma/client' //
-
+import jwt from 'jsonwebtoken'
 export const getMe = async (req, res) => {
 	try {
 		const prisma = new PrismaClient()
@@ -20,9 +20,17 @@ export const getMe = async (req, res) => {
 				},
 			})
 			const { id_telegram, ...newUser } = result
+			const token = jwt.sign(
+				{
+					_id: result_token.telegram_id,
+				},
+				'BEBRA',
+				{ expiresIn: '30d' }
+			)
+
 			const seariliezed_id_telegram = id_telegram.toString()
 			newUser.seariliezed_id_telegram = seariliezed_id_telegram
-			return res.status(200).json({ message: newUser })
+			return res.status(200).json({ message: { newUser, token } })
 		}
 	} catch (error) {
 		console.error(error)

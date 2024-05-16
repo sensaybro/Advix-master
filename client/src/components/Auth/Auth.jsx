@@ -1,6 +1,7 @@
-import axios from 'axios'
 import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useLocation, useNavigate } from 'react-router-dom'
+import { fetchUser } from '../../redux/reducers/UserSlice'
 function Auth() {
 	let location = useLocation()
 
@@ -8,28 +9,20 @@ function Auth() {
 	const secret = searchParams.get('secret')
 	console.log(secret)
 	const navigate = useNavigate()
-	// Теперь у вас есть значение параметра secret из URL, которое вы можете использовать внутри вашего компонента
+	const dispatch = useDispatch()
+	const { user, status } = useSelector(state => state.userData)
+
+	console.log(secret)
+	if (status === 'loading') {
+		console.log('is a loading')
+	} else if (status === 'error') {
+		console.log('error')
+	} else if (status === 'success') {
+		console.log(status, user)
+		navigate('/channels')
+	}
 	useEffect(() => {
-		const fetchUser = async () => {
-			try {
-				const result = await axios.get(
-					`${process.env.REACT_APP_API_KEY}/auth/user`,
-					{
-						params: {
-							secret,
-						},
-					}
-				)
-				console.log(result)
-				if (result.status === 200) {
-					console.log('r')
-					navigate('/channels')
-				}
-			} catch (error) {
-				console.log(error)
-			}
-		}
-		fetchUser()
+		dispatch(fetchUser(secret))
 	}, [secret])
 }
 export default Auth

@@ -14,13 +14,11 @@ const PriceHotBlock = ({ element }) => {
 		2: false,
 	})
 	const firstDifference = data => {
-		console.log('data', data.getTime())
 		const current = new Date()
-		console.log('current', current.getTime())
+
 		const timeDifference = Math.floor(
 			(data.getTime() - current.getTime()) / 1000
 		)
-		console.log('rimwe', timeDifference)
 		setTimer(timeDifference)
 	}
 	const checkForHot = () => {
