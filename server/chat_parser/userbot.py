@@ -1,5 +1,5 @@
 from pyrogram import Client, types, filters, raw, enums
-import asyncio, os, re, string, random
+import asyncio, os, re, string, random, datetime
 
 from config import BOT_TOKEN, ADMIN, DOMAIN
 from orm import User, Chanel, Secrets, session
@@ -46,7 +46,7 @@ async def handle_message(app: Client, message: types.Message):
         ))
         session.commit()
 
-        await message.reply(f'Перейдите на {url}  для авторизации!')
+        await message.reply(f'Перейдите на <a href="{url}">сайт</a> для авторизации!')
     
 @app.on_raw_update()
 async def handle_chat_member(app: Client, event, data: dict, details: dict):
@@ -113,6 +113,8 @@ async def handle_chat_member(app: Client, event, data: dict, details: dict):
             reactions = 0
             posts_count = 0
 
+            mounth_ago = datetime.datetime.now() - datetime.timedelta(days=31) 
+
             async for m in app.get_chat_history(channel_id):
                 m: types.Message = m
                 if m.views:
@@ -120,6 +122,8 @@ async def handle_chat_member(app: Client, event, data: dict, details: dict):
                     views += m.views
                 if m.reactions:
                     reactions += len(m.reactions.reactions)
+
+                if m.date < mounth_ago: break # если дата сообщения страше чем месяц назад, то дальше сообщения не обрабатываются
 
             members = await app.get_chat_members_count(channel_id)
             

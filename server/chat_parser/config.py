@@ -1,4 +1,4 @@
-BOT_TOKEN  = "6612351882:AAFFt2BKU4ZsYZP__mcWsfQvLZ-GtW4IAuQ"
+BOT_TOKEN  = "1326340931:AAEBrQVXGQYcofOU07JREWRWkA18K8vIUVg"
 
 DB_USER = "postgres.dwsrabvygdgmtwiqaflo"
 DB_HOST = "aws-0-eu-central-1.pooler.supabase.com"
