@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import style from './PriceDefaultBlock.module.scss'
 const PriceDefaultBlock = ({ data }) => {
+	console.log('data', data)
 	const [indexY, setIndexY] = useState(0)
 	const [clickedTypePrice, setClickedTypePrice] = useState({
 		24: false,
@@ -35,7 +36,7 @@ const PriceDefaultBlock = ({ data }) => {
 			</div>
 			<div className={style.wrapperDefaultPrice}>
 				<span>
-					{data.priceObjects[indexY].price.toLocaleString('ru-RU', {
+					{Number(data.priceObjects[indexY].price).toLocaleString('ru-RU', {
 						style: 'currency',
 						currency: 'RUB',
 						minimumFractionDigits: 0,

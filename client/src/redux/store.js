@@ -1,4 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
+import ChangedPageSlice from './reducers/ChangedPageSlice'
+import fetchDataChannelSlice from './reducers/ChannelDataSlice'
+import fetchDataChannelOneSlice from './reducers/ChannelOneDataSlice.js'
 import SelectedCatalogSlice from './reducers/SelectedCatalogSlice'
 import selectedFilterSlice from './reducers/SelectedFilter'
 import ThemeSlice from './reducers/ThemeSlice'
@@ -9,5 +12,8 @@ export const store = configureStore({
 		theme: ThemeSlice,
 		userData: FetchUserSlice,
 		filterData: selectedFilterSlice,
+		channelData: fetchDataChannelSlice,
+		channelOneData: fetchDataChannelOneSlice,
+		changePageData: ChangedPageSlice,
 	},
 })

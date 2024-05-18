@@ -21,9 +21,9 @@ const ChannelComponentHot = ({ element }) => {
 	})
 	const firstDifference = data => {
 		const current = new Date()
-
+		const date2 = new Date(data)
 		const timeDifference = Math.floor(
-			(data.getTime() - current.getTime()) / 1000
+			(date2.getTime() - current.getTime()) / 1000
 		)
 
 		setTimer(timeDifference)
@@ -36,7 +36,7 @@ const ChannelComponentHot = ({ element }) => {
 		})
 	}
 	useEffect(() => {
-		firstDifference(element.priceObjects[3].hot_date)
+		firstDifference(toFindHotPriceDate(element))
 		checkForHot()
 	}, [])
 
@@ -58,7 +58,7 @@ const ChannelComponentHot = ({ element }) => {
 		const b = getHot()[0].price
 		const d = a - b
 		const x = (d * 100) / a
-		return x
+		return Math.round(x)
 	}
 
 	const handleClickedTypePrice = key => {
@@ -79,8 +79,13 @@ const ChannelComponentHot = ({ element }) => {
 	}
 
 	//element.priceObjects[3].hot_date
-
+	const formatData = somedate => {
+		const updatedFormatData = new Date(somedate)
+		return updatedFormatData
+	}
 	const TimeDifferenceOne = ({ hotDate }) => {
+		console.log('hotdate', hotDate)
+		let updatedData = formatData(hotDate)
 		const [currentTime, setCurrentTime] = useState(new Date())
 
 		useEffect(() => {
@@ -93,7 +98,7 @@ const ChannelComponentHot = ({ element }) => {
 
 		// Проверяем, является ли время отрицательным
 		const timeDifference = Math.floor(
-			(hotDate.getTime() - currentTime.getTime()) / 1000
+			(updatedData.getTime() - currentTime.getTime()) / 1000
 		)
 
 		setTimer(timeDifference)
@@ -123,6 +128,17 @@ const ChannelComponentHot = ({ element }) => {
 	const filtredDefaultPrice = element.priceObjects.filter(element => {
 		return element.for_hot === true
 	})
+	const toFindHotPriceDate = element => {
+		let HotObject = {}
+		element.priceObjects.forEach(element => {
+			if (typeof element.hot_date == 'string') {
+				HotObject = element
+				return element
+			}
+		})
+		console.log(HotObject)
+		return HotObject.hot_date
+	}
 
 	return (
 		counter &&
@@ -146,7 +162,10 @@ const ChannelComponentHot = ({ element }) => {
 
 						<div className={style.wrapperImgAndDesc}>
 							<Link to={`/channels/${element.id}`}>
-								<img src={element.url_Image_Channel} alt='' srcset='' />
+								<img
+									src={`${process.env.REACT_APP_API_KEY}/chat_parser/${element.url_Image_Channel}`}
+									alt='img channel'
+								/>
 							</Link>
 
 							<div>
@@ -192,9 +211,7 @@ const ChannelComponentHot = ({ element }) => {
 								<div>
 									<img className={style.wrapperImageIcon} src={eye} alt='' />
 									<span>
-										<strong>
-											{ConvertIntToRUNumberFormat(element.count_views)}
-										</strong>{' '}
+										<strong>{ConvertIntToRUNumberFormat(element.views)}</strong>{' '}
 										просмотров на пост
 									</span>
 								</div>
@@ -221,8 +238,8 @@ const ChannelComponentHot = ({ element }) => {
 						</div>
 						<div></div>
 						<div>
-							{element.hot_price !== 0 && <span>{element.hot_price}</span>}
-							{element.hot_price === 0 ? element.price : element.hot_price}
+							{/* {element.hot_price !== 0 && <span>{element.hot_price}</span>}
+							{element.hot_price === 0 ? element.price : element.hot_price} */}
 						</div>
 					</div>
 					<div className={style.forFutureFeatures}>
@@ -233,7 +250,7 @@ const ChannelComponentHot = ({ element }) => {
 					<hr className={style.Line} color='#e1e5e8' />
 					<div className={style.wrapperDefaultPriceUnderline}>
 						<span>
-							{filtredDefaultPrice[0].price.toLocaleString('ru-RU', {
+							{Number(filtredDefaultPrice[0].price).toLocaleString('ru-RU', {
 								style: 'currency',
 								currency: 'RUB',
 								minimumFractionDigits: 0,
@@ -244,7 +261,7 @@ const ChannelComponentHot = ({ element }) => {
 						<span>
 							{element.priceObjects
 								.filter(element => element.hot === true)
-								.map(element => element.price)
+								.map(element => Number(element.price))
 								.toLocaleString('ru-RU', {
 									style: 'currency',
 									currency: 'RUB',
@@ -285,10 +302,11 @@ const ChannelComponentHot = ({ element }) => {
 										onClick={() => handleClickedTypePrice(time)}
 									>
 										<span>
-											{time.hot_date.toLocaleDateString('ru-RU', {
-												month: 'long',
-												day: 'numeric',
-											})}
+											{time.hot_date &&
+												formatData(time.hot_date).toLocaleTimeString('ru-RU', {
+													month: 'long',
+													day: 'numeric',
+												})}
 										</span>
 									</button>
 								)
@@ -304,10 +322,11 @@ const ChannelComponentHot = ({ element }) => {
 										onClick={() => handleClickedTypePrice(time)}
 									>
 										<span>
-											{time.hot_date.toLocaleTimeString('ru-RU', {
-												hour: 'numeric',
-												minute: 'numeric',
-											})}
+											{time.hot_date &&
+												formatData(time.hot_date).toLocaleTimeString('ru-RU', {
+													hour: 'numeric',
+													minute: 'numeric',
+												})}
 										</span>
 									</button>
 								)
@@ -320,7 +339,7 @@ const ChannelComponentHot = ({ element }) => {
 				<div className={style.TimeAndDiscount}>
 					<div className={style.wrapperFormulaDis}>{formulaDiscount()}%</div>
 					<div className={style.TimeBuy}>
-						<TimeDifferenceOne hotDate={element.priceObjects[3].hot_date} />
+						<TimeDifferenceOne hotDate={toFindHotPriceDate(element)} />
 					</div>
 				</div>
 			</div>

@@ -31,7 +31,7 @@ const Statistics = ({ data }) => {
 					<div>
 						<img className={style.imageWrapper} src={eye} alt='' />
 						<span>
-							<strong>{ConvertIntToRUNumberFormat(data.count_views)}</strong>{' '}
+							<strong>{ConvertIntToRUNumberFormat(data.views)}</strong>{' '}
 							просмотров на пост
 						</span>
 					</div>
