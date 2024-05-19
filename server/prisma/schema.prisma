@@ -55,6 +55,7 @@ model Channel {
   is_published           Boolean        @default(false)
   user                   User           @relation(fields: [User_id], references: [User_id])
   priceObjects           PriceObjects[]
+  is_active              Boolean        @default(false)
 }
 
 model User {

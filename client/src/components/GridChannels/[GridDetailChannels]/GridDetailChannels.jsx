@@ -19,48 +19,36 @@ const GridDetailChannels = () => {
 	const { id } = useParams()
 	const dispatch = useDispatch()
 	let elementDetail = []
+	const { channels, status } = useSelector(state => state.channelData)
+
+	let data = []
 	useEffect(() => {
-		console.log('id2', id)
 		dispatch(fetchDataChannelOne(id))
 	}, [])
-	console.log('id', id)
-	let data = []
 	const data2 = useSelector(state => state.channelOneData)
-	const { channels, status } = useSelector(state => state.channelData)
-	console.log('data2', data2)
-	const status2 = data.status
-	const channel = data2.channel
-	console.log(channels, status)
-	console.log(channel, status2)
-	if (status2 === 'success') {
-		elementDetail = channel
-	}
 
-	if (status2 !== 'success') {
+	const statusOne = data2.statusOne
+	console.log('status', status)
+	if (status === 'success') {
 		channels.map(element => {
 			if (Number(element.id) == Number(id)) {
-				console.log(element)
-				elementDetail = element
+				console.log('element', element)
+				return (elementDetail = element)
 			}
 		})
 	}
-	//	console.log('count', count)
+	if (status !== 'success' && statusOne === 'success') {
+		let priceObjects = data2.channel.priceObjects
 
-	//	console.log('channel', channel)
-	//console.log('status', status)
+		elementDetail = { ...data2.channel.data, priceObjects }
+		console.log('elementDetail', elementDetail)
+	}
 
-	data = elementDetail
-	console.log(data)
-	// const result = data.filter(element => {
-	// 	return element.id == id
-	// })
-	//const elementDetail = data
 	const ConvertIntToRUNumberFormat = among => {
 		return new Intl.NumberFormat('ru', { style: 'decimal' }).format(among)
 	}
 
 	function ConvertIntToENNumberFormat(num) {
-		console.log('num', num)
 		if (num >= 1000000) {
 			return (num / 1000000).toFixed(1) + 'M'
 		} else if (num >= 1000) {
@@ -71,12 +59,12 @@ const GridDetailChannels = () => {
 	}
 
 	return (
-		status === 'success' && (
+		statusOne === 'success' && (
 			<div className={style.wrapperGridDetailChannels}>
 				<div className={style.wrapperCatalog}>
 					<Button />
 					<div className={style.wrapperLinkAndInfoAbout}>
-						<InfoAboutPublic type_public={elementDetail.public_type} />
+						<InfoAboutPublic type_public={!elementDetail.public_type} />
 						<LinkChannel url={elementDetail.link_Cannel} />
 					</div>
 				</div>

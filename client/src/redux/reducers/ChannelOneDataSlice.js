@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import axios from 'axios'
 export const fetchDataChannelOne = createAsyncThunk(
-	'user/UserFetch',
+	'channelOne/channelOneFetch',
 	async id => {
 		const { data } = await axios.get(
 			`${process.env.REACT_APP_API_KEY}/channel/one?id=${id}`
@@ -12,7 +12,7 @@ export const fetchDataChannelOne = createAsyncThunk(
 )
 const initialState = {
 	channel: [],
-	status: 'loading', // loading | success | error
+	statusOne: 'loading', // loading | success | error
 }
 
 const fetchDataChannelOneSlice = createSlice({
@@ -21,24 +21,24 @@ const fetchDataChannelOneSlice = createSlice({
 	reducers: {
 		setFetchDataChannelOne(state, action) {
 			state.channel = action.payload
-			state.status = 'success'
+			state.statusOne = 'success'
 		},
 	},
 	extraReducers: builder => {
 		builder
 			.addCase(fetchDataChannelOne.pending, (state, action) => {
 				state.channel = []
-				state.status = 'loading'
+				state.statusOne = 'loading'
 			})
 			.addCase(fetchDataChannelOne.fulfilled, (state, action) => {
 				// Добавление новых данных к существующему массиву
 
 				state.channel = action.payload
-				state.status = 'success'
+				state.statusOne = 'success'
 			})
 			.addCase(fetchDataChannelOne.rejected, (state, action) => {
 				state.channel = []
-				state.status = 'error'
+				state.statusOne = 'error'
 			})
 	},
 })

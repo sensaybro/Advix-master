@@ -1,18 +1,25 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import axios from 'axios'
-export const fetchDataChannel = createAsyncThunk('user/UserFetch', async () => {
-	const { data } = await axios.get(
-		`${process.env.REACT_APP_API_KEY}/channel/all_published?is_published=true`
-	)
-	console.log('data', data)
-	return data
-})
+export const fetchDataChannel = createAsyncThunk(
+	'channel/ChannelFetch',
+	async () => {
+		try {
+			const { data } = await axios.get(
+				`${process.env.REACT_APP_API_KEY}/channel/all_published?is_published=true`
+			)
+			console.log('data', data)
+			return data
+		} catch (error) {
+			console.log(error)
+		}
+	}
+)
 const initialState = {
 	channels: [],
 	status: 'loading', // loading | success | error
 }
 
-const fetchDataChannelSlice = createSlice({
+export const fetchDataChannelSlice = createSlice({
 	name: 'channels',
 	initialState,
 	reducers: {
@@ -40,6 +47,4 @@ const fetchDataChannelSlice = createSlice({
 	},
 })
 
-export const { setFetchDataChannel } = fetchDataChannelSlice.actions
-
-export default fetchDataChannelSlice.reducer
+// export const { setFetchDataChannel } = fetchDataChannelSlice.actions

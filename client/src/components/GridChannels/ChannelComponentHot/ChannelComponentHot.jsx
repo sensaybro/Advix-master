@@ -84,7 +84,6 @@ const ChannelComponentHot = ({ element }) => {
 		return updatedFormatData
 	}
 	const TimeDifferenceOne = ({ hotDate }) => {
-		console.log('hotdate', hotDate)
 		let updatedData = formatData(hotDate)
 		const [currentTime, setCurrentTime] = useState(new Date())
 
@@ -136,7 +135,7 @@ const ChannelComponentHot = ({ element }) => {
 				return element
 			}
 		})
-		console.log(HotObject)
+
 		return HotObject.hot_date
 	}
 

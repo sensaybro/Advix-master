@@ -55,7 +55,7 @@ const PriceHotBlock = ({ element }) => {
 		const b = getHot()[0].price
 		const d = a - b
 		const x = (d * 100) / a
-		return x
+		return Math.round(x)
 	}
 
 	const handleClickedTypePrice = key => {
@@ -121,7 +121,16 @@ const PriceHotBlock = ({ element }) => {
 	const filtredDefaultPrice = element.priceObjects.filter(element => {
 		return element.for_hot === true
 	})
-
+	const findHotTime = priceObjects => {
+		let HotElement = {}
+		priceObjects.map(element => {
+			if (element.hot === true) {
+				HotElement = element
+				return
+			}
+		})
+		return HotElement.hot_date
+	}
 	return (
 		<div className={style.wrapperRootHotPrice}>
 			<div className={style.wrapperTitleHot}>
@@ -221,7 +230,7 @@ const PriceHotBlock = ({ element }) => {
 					<div className={style.wrapperFormulaDis}>{formulaDiscount()}%</div>
 					<div className={style.TimeBuy}>
 						ОСТАЛОСЬ
-						<TimeDifferenceOne hotDate={element.priceObjects[3].hot_date} />
+						<TimeDifferenceOne hotDate={findHotTime(element.priceObjects)} />
 					</div>
 				</div>
 			</div>

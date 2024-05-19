@@ -41,6 +41,7 @@ class Chanel(Base):
     CPM = Column(Integer, default=0)
     hot_state = Column(Boolean, default=False)
     verified = Column(Integer)
+    is_active = Column(Boolean, default=False) 
     
 class User(Base):
     __tablename__ = "User"
