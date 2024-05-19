@@ -1,6 +1,8 @@
 import { useState } from 'react'
+import { sortedPriceObjects } from '../../Sorting/Sorting'
 import style from './PriceDefaultBlock.module.scss'
 const PriceDefaultBlock = ({ data }) => {
+	console.log('data', data)
 	const [indexY, setIndexY] = useState(0)
 	const [clickedTypePrice, setClickedTypePrice] = useState({
 		24: false,
@@ -28,6 +30,7 @@ const PriceDefaultBlock = ({ data }) => {
 			return newState
 		})
 	}
+	//	sortedPriceObjects(dat.priceObjects)
 	return (
 		<div className={style.wrapperRootPriceSwitcher}>
 			<div className={style.wrapperTitle}>
@@ -35,7 +38,9 @@ const PriceDefaultBlock = ({ data }) => {
 			</div>
 			<div className={style.wrapperDefaultPrice}>
 				<span>
-					{data.priceObjects[indexY].price.toLocaleString('ru-RU', {
+					{Number(
+						sortedPriceObjects(data.priceObjects)[indexY].price
+					).toLocaleString('ru-RU', {
 						style: 'currency',
 						currency: 'RUB',
 						minimumFractionDigits: 0,
@@ -44,7 +49,7 @@ const PriceDefaultBlock = ({ data }) => {
 			</div>
 			<div className={style.wrapperPriceType}>
 				<div className={style.priceType}>
-					{data.priceObjects.map(
+					{sortedPriceObjects(data.priceObjects).map(
 						(time, index) =>
 							time.hot === false && (
 								<button

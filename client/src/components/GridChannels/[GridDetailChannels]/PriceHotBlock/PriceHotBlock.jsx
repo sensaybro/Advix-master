@@ -5,6 +5,7 @@ const PriceHotBlock = ({ element }) => {
 	const [clicked, setClicked] = useState(false)
 	const [timer, setTimer] = useState(0)
 	const [counter, setCounter] = useState(false)
+	const [isTime, setIsTimer] = useState(true)
 	const [clickedTypePrice, setClickedTypePrice] = useState({
 		24: false,
 		48: false,
@@ -14,13 +15,11 @@ const PriceHotBlock = ({ element }) => {
 		2: false,
 	})
 	const firstDifference = data => {
-		console.log('data', data.getTime())
 		const current = new Date()
-		console.log('current', current.getTime())
+		const dataFormated = new Date(data)
 		const timeDifference = Math.floor(
-			(data.getTime() - current.getTime()) / 1000
+			(dataFormated.getTime() - current.getTime()) / 1000
 		)
-		console.log('rimwe', timeDifference)
 		setTimer(timeDifference)
 	}
 	const checkForHot = () => {
@@ -45,16 +44,19 @@ const PriceHotBlock = ({ element }) => {
 			return element.hot === true
 		})
 	}
+	const formatData = somedate => {
+		const updatedFormatData = new Date(somedate)
+		return updatedFormatData
+	}
 	const ConvertIntToRUPercent = among => {
 		return new Intl.NumberFormat('ru', { style: 'percent' }).format(among)
 	}
 	const formulaDiscount = () => {
-		console.log(getHot()[0])
 		const a = getForHot()[0].price
 		const b = getHot()[0].price
 		const d = a - b
 		const x = (d * 100) / a
-		return x
+		return Math.round(x)
 	}
 
 	const handleClickedTypePrice = key => {
@@ -77,6 +79,7 @@ const PriceHotBlock = ({ element }) => {
 	//element.priceObjects[3].hot_date
 
 	const TimeDifferenceOne = ({ hotDate }) => {
+		const date2 = new Date(hotDate)
 		const [currentTime, setCurrentTime] = useState(new Date())
 
 		useEffect(() => {
@@ -89,13 +92,14 @@ const PriceHotBlock = ({ element }) => {
 
 		// Проверяем, является ли время отрицательным
 		const timeDifference = Math.floor(
-			(hotDate.getTime() - currentTime.getTime()) / 1000
+			(date2.getTime() - currentTime.getTime()) / 1000
 		)
 
 		setTimer(timeDifference)
-		// if (timeDifference < 0) {
-		// 	return null // Если время отрицательное, не отображаем компонент
-		// }
+		if (timeDifference < 0) {
+			setIsTimer(false)
+			return null // Если время отрицательное, не отображаем компонент
+		}
 
 		const hours = Math.floor(timeDifference / 3600)
 		const minutes = Math.floor((timeDifference % 3600) / 60)
@@ -119,8 +123,17 @@ const PriceHotBlock = ({ element }) => {
 	const filtredDefaultPrice = element.priceObjects.filter(element => {
 		return element.for_hot === true
 	})
-
-	return (
+	const findHotTime = priceObjects => {
+		let HotElement = {}
+		priceObjects.map(element => {
+			if (element.hot === true) {
+				HotElement = element
+				return
+			}
+		})
+		return HotElement.hot_date
+	}
+	return isTime === false ? (
 		<div className={style.wrapperRootHotPrice}>
 			<div className={style.wrapperTitleHot}>
 				<span>ГОРЯЩЕЕ ПРЕДЛОЖЕНИЕ 🔥</span>
@@ -130,7 +143,7 @@ const PriceHotBlock = ({ element }) => {
 					<span>
 						{element.priceObjects
 							.filter(element => element.hot === true)
-							.map(element => element.price)
+							.map(element => Number(element.price))
 							.toLocaleString('ru-RU', {
 								style: 'currency',
 								currency: 'RUB',
@@ -140,7 +153,7 @@ const PriceHotBlock = ({ element }) => {
 				</div>
 				<div className={style.wrapperDefaultPriceUnderline}>
 					<span className={style.wrapperDiscPrice}>
-						{filtredDefaultPrice[0].price.toLocaleString('ru-RU', {
+						{Number(filtredDefaultPrice[0].price).toLocaleString('ru-RU', {
 							style: 'currency',
 							currency: 'RUB',
 							minimumFractionDigits: 0,
@@ -180,7 +193,7 @@ const PriceHotBlock = ({ element }) => {
 									onClick={() => handleClickedTypePrice(time)}
 								>
 									<span>
-										{time.hot_date.toLocaleDateString('ru-RU', {
+										{formatData(time.hot_date).toLocaleDateString('ru-RU', {
 											month: 'long',
 											day: 'numeric',
 										})}
@@ -199,7 +212,7 @@ const PriceHotBlock = ({ element }) => {
 									onClick={() => handleClickedTypePrice(time)}
 								>
 									<span>
-										{time.hot_date.toLocaleTimeString('ru-RU', {
+										{formatData(time.hot_date).toLocaleTimeString('ru-RU', {
 											hour: 'numeric',
 											minute: 'numeric',
 										})}
@@ -219,10 +232,14 @@ const PriceHotBlock = ({ element }) => {
 					<div className={style.wrapperFormulaDis}>{formulaDiscount()}%</div>
 					<div className={style.TimeBuy}>
 						ОСТАЛОСЬ
-						<TimeDifferenceOne hotDate={element.priceObjects[3].hot_date} />
+						<TimeDifferenceOne hotDate={findHotTime(element.priceObjects)} />
 					</div>
 				</div>
 			</div>
+		</div>
+	) : (
+		<div className={style.wrapperNotHotPrice}>
+			<span>Сейчас у канала нет горящих предложений</span>
 		</div>
 	)
 }

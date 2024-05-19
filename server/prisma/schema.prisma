@@ -16,13 +16,14 @@ model Connect {
 
 model PriceObjects {
   id             Int       @id @default(autoincrement())
+  id_channel     Int
   price          BigInt
   time           Int
   hot            Boolean
   for_hot        Boolean
   hot_date       DateTime?
   currently_date DateTime?
-  id_channel     Channel   @relation(fields: [id], references: [id])
+  channel        Channel   @relation(fields: [id_channel], references: [id])
 }
 
 model Channel {
@@ -37,7 +38,7 @@ model Channel {
   link_Type_Boolean      Boolean
   url_Image_Channel      String?
   url_background_channel String?
-  verified               String?
+  verified               Boolean
   selected               Int?
   public_type            Boolean
   count_subscribers      Int
@@ -47,13 +48,14 @@ model Channel {
   ERR                    Decimal?
   position               Int?
   default_price          Int
-  default_time_day       Int
+  default_time_day       Int?
   hot_price              Int
   CPM                    Int
   hot_state              Boolean
   is_published           Boolean        @default(false)
   user                   User           @relation(fields: [User_id], references: [User_id])
   priceObjects           PriceObjects[]
+  is_active              Boolean        @default(false)
 }
 
 model User {

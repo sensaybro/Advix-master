@@ -1,46 +1,52 @@
-import createAsyncThunk from '@reduxjs/toolkit'
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import axios from 'axios'
-export const fetchUser = createAsyncThunk('user/UserFetch', async token => {
-	const { data } = await axios.get(`${SERVER_URL}/auth/user`, {
-		params: {
-			token,
-		},
-	})
-
-	return data.result
+import Cookies from 'js-cookie'
+export const fetchUser = createAsyncThunk('user/UserFetch', async secret => {
+	try {
+		const { data } = await axios.get(
+			`${process.env.REACT_APP_API_KEY}/auth/user`,
+			{
+				params: {
+					secret,
+				},
+			}
+		)
+		console.log(data.message.newUser)
+		Cookies.set('token', data.message.token)
+		return data.message.newUser
+	} catch (error) {
+		console.log(error)
+	}
 })
 const initialState = {
 	user: {},
 	status: 'loading', // loading | success | error
 }
 
-const FetchLessonSlice = createSlice({
-	name: 'dataPage',
+export const FetchUserSlice = createSlice({
+	name: 'user_fetch',
 	initialState,
 	reducers: {
-		setPages(state, action) {
-			state.dataPage = []
+		setUser(state, action) {
+			state.user = action.payload
 			state.status = 'success'
 		},
 	},
 	extraReducers: builder => {
 		builder
 			.addCase(fetchUser.pending, (state, action) => {
-				state.dataPage = {}
+				state.user = {}
 				state.status = 'loading'
 			})
 			.addCase(fetchUser.fulfilled, (state, action) => {
 				// Добавление новых данных к существующему массиву
-				state.dataPage = action.payload
+
+				state.user = action.payload
 				state.status = 'success'
 			})
 			.addCase(fetchUser.rejected, (state, action) => {
-				state.dataPage = {}
+				state.user = {}
 				state.status = 'error'
 			})
 	},
 })
-
-export const { setPages } = FetchLessonSlice.actions
-
-export default FetchLessonSlice.reducer

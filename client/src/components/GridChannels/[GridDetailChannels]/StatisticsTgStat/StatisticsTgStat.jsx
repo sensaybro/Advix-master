@@ -6,7 +6,7 @@ const StatisticsTgStat = ({ name_channel }) => {
 		<div className={style.wrapper}>
 			<img
 				src={`https://tgstat.ru/channel/@${name_channel}/stat-widget.png`}
-				alt='name_channel'
+				alt={name_channel}
 			/>
 		</div>
 	)

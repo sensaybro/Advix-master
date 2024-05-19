@@ -6,6 +6,7 @@ import favorited from '../../../assets/favorited.svg'
 import userIcon from '../../../assets/person.svg'
 import price from '../../../assets/price.svg'
 import priceCMP from '../../../assets/priceCPM.svg'
+import { sortedPriceObjects } from '../Sorting/Sorting'
 import style from './ChannelComponent.module.scss'
 const ChannelComponent = ({ element }) => {
 	const [clicked, setClicked] = useState(false)
@@ -78,7 +79,10 @@ const ChannelComponent = ({ element }) => {
 
 					<div className={style.wrapperImgAndDesc}>
 						<Link to={`/channels/${element.id}`}>
-							<img src={element.url_Image_Channel} alt='' srcset='' />
+							<img
+								src={`${process.env.REACT_APP_API_KEY}/chat_parser/${element.url_Image_Channel}`}
+								alt='logo'
+							/>
 						</Link>
 
 						<div>
@@ -121,9 +125,7 @@ const ChannelComponent = ({ element }) => {
 							<div>
 								<img className={style.wrapperImageIcon} src={eye} alt='' />
 								<span>
-									<strong>
-										{ConvertIntToRUNumberFormat(element.count_views)}
-									</strong>{' '}
+									<strong>{ConvertIntToRUNumberFormat(element.views)}</strong>{' '}
 									просмотров на пост
 								</span>
 							</div>
@@ -145,8 +147,8 @@ const ChannelComponent = ({ element }) => {
 					</div>
 					<div></div>
 					<div>
-						{element.hot_price !== 0 && <span>{element.hot_price}</span>}
-						{element.hot_price === 0 ? element.price : element.hot_price}
+						{/* {element.hot_price !== 0 && <span>{element.hot_price}</span>}
+						{element.hot_price === 0 ? element.price : element.hot_price} */}
 					</div>
 				</div>
 				<div className={style.forFutureFeatures}>
@@ -157,7 +159,9 @@ const ChannelComponent = ({ element }) => {
 				<hr color='#e1e5e8' />
 				<div className={style.wrapperDefaultPrice}>
 					<span>
-						{element.priceObjects[indexY].price.toLocaleString('ru-RU', {
+						{Number(
+							sortedPriceObjects(element.priceObjects)[indexY].price
+						).toLocaleString('ru-RU', {
 							style: 'currency',
 							currency: 'RUB',
 							minimumFractionDigits: 0,
@@ -166,7 +170,7 @@ const ChannelComponent = ({ element }) => {
 				</div>
 			</div>
 			<div className={style.priceType}>
-				{element.priceObjects.map(
+				{sortedPriceObjects(element.priceObjects).map(
 					(time, index) =>
 						time.hot === false && (
 							<button

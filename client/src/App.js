@@ -4,7 +4,6 @@ import Auth from './components/Auth/Auth'
 import Channels from './components/Channels/Channels'
 import GridDetailChannels from './components/GridChannels/[GridDetailChannels]/GridDetailChannels'
 import MainLayout from './components/HeaderOutlet/MainLayout'
-
 const App = () => {
 	return (
 		<>

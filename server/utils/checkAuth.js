@@ -7,7 +7,7 @@ export default (req, res, next) => {
 	if (token) {
 		try {
 			const decoded = jwt.verify(token, process.env.SECRET)
-			req.userId = decoded._id
+			req.user_name = decoded.user_name
 			next()
 		} catch (error) {
 			return res.status(500).send({

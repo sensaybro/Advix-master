@@ -1,3 +1,4 @@
+import Cookies from 'js-cookie'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import logo from '../../assets/advix_blue.svg'
@@ -20,8 +21,9 @@ const Header = () => {
 		dispatch(setCatalog({ label: 'Каталог', state: true }))
 	}
 	const { pages } = useSelector(state => state.selectedCatalog)
+	const { user, status } = useSelector(state => state.userData)
 	const { theme } = useSelector(state => state.theme)
-
+	const token = Cookies.get('token')
 	useEffect(() => {
 		if (!theme) {
 			document.body.classList.add('dark')
@@ -59,9 +61,16 @@ const Header = () => {
 			<div className={style.lastWrapperInHeader}>
 				<SwitchButton />
 				<button className={style.LoginBtn}>
-					<a target='_blank' href='https://t.me/AdvixOAuth_bot'>
-						<img src={telegram} alt='telegram' />
-						<span>Войти</span>
+					<a target='_blank' href={process.env.REACT_APP_LINK_BOT}>
+						<img
+							src={
+								status !== 'success'
+									? telegram
+									: `${process.env.REACT_APP_API_KEY}/chat_parser/${user.link_image}`
+							}
+							alt='telegram'
+						/>
+						<span>{status !== 'success' ? 'Войти' : `${user.user_name}`}</span>
 					</a>
 				</button>
 			</div>
