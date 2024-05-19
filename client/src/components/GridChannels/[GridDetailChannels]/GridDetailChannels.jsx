@@ -120,7 +120,7 @@ const GridDetailChannels = () => {
 									</button>
 								</div>
 
-								<StatisticsTgStat name_channel={elementDetail.link_Cannel} />
+								<StatisticsTgStat name_channel={elementDetail.name_channel} />
 							</div>
 						</div>
 						<div className={style.wrapperStatistics}>

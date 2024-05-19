@@ -6,6 +6,7 @@ import favorited from '../../../assets/favorited.svg'
 import userIcon from '../../../assets/person.svg'
 import price from '../../../assets/price.svg'
 import priceCMP from '../../../assets/priceCPM.svg'
+import { sortedPriceObjects } from '../Sorting/Sorting'
 import style from './ChannelComponent.module.scss'
 const ChannelComponent = ({ element }) => {
 	const [clicked, setClicked] = useState(false)
@@ -158,19 +159,18 @@ const ChannelComponent = ({ element }) => {
 				<hr color='#e1e5e8' />
 				<div className={style.wrapperDefaultPrice}>
 					<span>
-						{Number(element.priceObjects[indexY].price).toLocaleString(
-							'ru-RU',
-							{
-								style: 'currency',
-								currency: 'RUB',
-								minimumFractionDigits: 0,
-							}
-						)}
+						{Number(
+							sortedPriceObjects(element.priceObjects)[indexY].price
+						).toLocaleString('ru-RU', {
+							style: 'currency',
+							currency: 'RUB',
+							minimumFractionDigits: 0,
+						})}
 					</span>
 				</div>
 			</div>
 			<div className={style.priceType}>
-				{element.priceObjects.map(
+				{sortedPriceObjects(element.priceObjects).map(
 					(time, index) =>
 						time.hot === false && (
 							<button

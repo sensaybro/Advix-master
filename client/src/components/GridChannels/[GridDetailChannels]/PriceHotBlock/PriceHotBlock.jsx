@@ -5,6 +5,7 @@ const PriceHotBlock = ({ element }) => {
 	const [clicked, setClicked] = useState(false)
 	const [timer, setTimer] = useState(0)
 	const [counter, setCounter] = useState(false)
+	const [isTime, setIsTimer] = useState(true)
 	const [clickedTypePrice, setClickedTypePrice] = useState({
 		24: false,
 		48: false,
@@ -95,9 +96,10 @@ const PriceHotBlock = ({ element }) => {
 		)
 
 		setTimer(timeDifference)
-		// if (timeDifference < 0) {
-		// 	return null // Если время отрицательное, не отображаем компонент
-		// }
+		if (timeDifference < 0) {
+			setIsTimer(false)
+			return null // Если время отрицательное, не отображаем компонент
+		}
 
 		const hours = Math.floor(timeDifference / 3600)
 		const minutes = Math.floor((timeDifference % 3600) / 60)
@@ -131,7 +133,7 @@ const PriceHotBlock = ({ element }) => {
 		})
 		return HotElement.hot_date
 	}
-	return (
+	return isTime === false ? (
 		<div className={style.wrapperRootHotPrice}>
 			<div className={style.wrapperTitleHot}>
 				<span>ГОРЯЩЕЕ ПРЕДЛОЖЕНИЕ 🔥</span>
@@ -234,6 +236,10 @@ const PriceHotBlock = ({ element }) => {
 					</div>
 				</div>
 			</div>
+		</div>
+	) : (
+		<div className={style.wrapperNotHotPrice}>
+			<span>Сейчас у канала нет горящих предложений</span>
 		</div>
 	)
 }
