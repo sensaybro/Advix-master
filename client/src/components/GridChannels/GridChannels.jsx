@@ -40,6 +40,10 @@ const GridChannels = () => {
 				<DropDown default_arg={default_arg} args={args} />
 			</div>
 			<div className={style.GridChannelsComponentsWrapper}>
+{
+          status === 'error' && <div>не удалось получить данные с сервером :(</div>
+        }
+
 				{status === 'success' &&
 					channels.map(element => {
 						return pages.label === 'Каталог' ? (
@@ -55,7 +59,7 @@ const GridChannels = () => {
 							)
 						)
 					})}
-			</div>
+        			</div>
 			<PaginationButton />
 		</div>
 	)

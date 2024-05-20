@@ -56,6 +56,7 @@
 	width: 7.5625rem;
 	height: 2.625rem;
 	border-radius: 1.25rem;
+	font-weight: 600;
 	img {
 		width: 1.5rem;
 
@@ -66,10 +67,10 @@
 		display: flex;
 		flex-direction: row;
 		align-items: center;
+
 		span {
 			font-size: 0.7rem;
 			font-family: 'Roboto', sans-serif;
-			font-weight: 600;
 		}
 	}
 }

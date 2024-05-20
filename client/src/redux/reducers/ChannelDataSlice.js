@@ -3,15 +3,13 @@ import axios from 'axios'
 export const fetchDataChannel = createAsyncThunk(
 	'channel/ChannelFetch',
 	async () => {
-		try {
+		
 			const { data } = await axios.get(
 				`${process.env.REACT_APP_API_KEY}/channel/all_published?is_published=true`
 			)
 			console.log('data', data)
 			return data
-		} catch (error) {
-			console.log(error)
-		}
+		
 	}
 )
 const initialState = {

@@ -3,12 +3,15 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import logo from '../../assets/advix_blue.svg'
 import telegram from '../../assets/telegram-svgrepo-com.svg'
+import { setClickLogin } from '../../redux/reducers/ClickedLoginSlice'
 import { setCatalog } from '../../redux/reducers/SelectedCatalogSlice'
+import PopupAuth from '../PopupAuth/PopupAuth'
 import { SwitchButton } from '../Switcher2/Switcher/Switcher'
 import style from './Header.module.scss'
 const Header = () => {
 	const [clickedHotBtn, setClickedHotBtn] = useState(false)
 	const [clickedCatalogBtn, setClickedCatalogBtn] = useState(false)
+  const [clickedLogin, setClickedLogin]= useState(false)
 	const dispatch = useDispatch()
 	const handleClickHotBtn = () => {
 		setClickedHotBtn(!clickedHotBtn)
@@ -31,6 +34,13 @@ const Header = () => {
 			document.body.classList.remove('dark')
 		}
 	}, [theme])
+  const {logined} = useSelector(state=>state.loginData)
+  const handlerPopupAuth = () => {
+   /*  dispatch(setClickedLogin(true)) */
+     //setClickedLogin(!clickedLogin)
+    // setClickedLogin(!clickedLogin)
+    dispatch(setClickLogin(!logined))
+  }
 	return (
 		<header className={style.wrapperHeader}>
 			<div>
@@ -60,8 +70,7 @@ const Header = () => {
 			</div>
 			<div className={style.lastWrapperInHeader}>
 				<SwitchButton />
-				<button className={style.LoginBtn}>
-					<a target='_blank' href={process.env.REACT_APP_LINK_BOT}>
+				<button onClick={handlerPopupAuth} className={style.LoginBtn}>
 						<img
 							src={
 								status !== 'success'
@@ -71,9 +80,9 @@ const Header = () => {
 							alt='telegram'
 						/>
 						<span>{status !== 'success' ? 'Войти' : `${user.user_name}`}</span>
-					</a>
 				</button>
 			</div>
+      
 		</header>
 	)
 }

@@ -58,6 +58,10 @@ model Channel {
   is_active              Boolean        @default(false)
 }
 
+model Categories {
+  categories_id Int @id @default(autoincrement())
+  categories_name String
+}
 model User {
   User_id     Int       @id @default(autoincrement())
   id_telegram BigInt    @unique
