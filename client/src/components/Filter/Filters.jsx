@@ -24,7 +24,14 @@ function Filter() {
 	]
 	const default_argCategory = 'Не выбрано'
 
-	const langList = ['Русский', 'Английский', 'Арабский']
+	const langList = [
+		'Русский',
+		'Английский',
+		'Узбекский',
+		'Украинский',
+		'Казахский',
+		'Белорусский',
+	]
 	const default_argLang = 'Не выбрано'
 	const ConvertIntToRUPercent = among => {
 		return new Intl.NumberFormat('ru', { style: 'percent' }).format(among)

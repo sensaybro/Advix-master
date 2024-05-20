@@ -2,8 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import axios from 'axios'
 import Cookies from 'js-cookie'
 export const fetchUser = createAsyncThunk('user/UserFetch', async secret => {
-	try {
-		const { data } = await axios.get(
+	const { data } = await axios.get(
 			`${process.env.REACT_APP_API_KEY}/auth/user`,
 			{
 				params: {
@@ -14,9 +13,7 @@ export const fetchUser = createAsyncThunk('user/UserFetch', async secret => {
 		console.log(data.message.newUser)
 		Cookies.set('token', data.message.token)
 		return data.message.newUser
-	} catch (error) {
-		console.log(error)
-	}
+
 })
 const initialState = {
 	user: {},

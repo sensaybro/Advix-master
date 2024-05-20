@@ -3,6 +3,7 @@ import ChangedPageSlice from './reducers/ChangedPageSlice'
 
 import { fetchDataChannelSlice } from './reducers/ChannelDataSlice'
 import fetchDataChannelOneSlice from './reducers/ChannelOneDataSlice.js'
+import clickedLoginSlice from './reducers/ClickedLoginSlice'
 import SelectedCatalogSlice from './reducers/SelectedCatalogSlice'
 import selectedFilterSlice from './reducers/SelectedFilter'
 import ThemeSlice from './reducers/ThemeSlice'
@@ -17,5 +18,6 @@ export const store = configureStore({
 		channelData: fetchDataChannelSlice.reducer,
 		channelOneData: fetchDataChannelOneSlice,
 		changePageData: ChangedPageSlice,
+    loginData: clickedLoginSlice 
 	},
 })
